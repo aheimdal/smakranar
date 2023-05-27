@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import '../css/Employees.css'
 
 function Employees() {
     const [employees, setEmployees] = useState([]);
@@ -9,29 +12,35 @@ function Employees() {
             .then((data) => setEmployees(data));
     }, []);
 
+    useEffect(() => {
+        AOS.init({ duration: 2000 });
+    }, []);
+
     return (
-        <div id='employees' className='text-center'>
-            <h1>Our Team</h1>
-            <div className='container'>
-                <div className='row'>
-                    {employees.map((employee) => (
-                        <div key={employee.id} className='col-xs-12 col-md-6'>
-                            {/* replace 'employee.id', 'employee.name', etc. with your actual employee object properties */}
-                            <img
-                            src={employee.image}
-                            alt={employee.name}
-                            width="auto"
-                            height="200"
-                            className="d-inline-block align-top"/>
-                            <h2>{employee.name}</h2>
-                            <p>{employee.jobtitle}</p>
-                            {/* Add more information as needed */}
-                        </div>
-                    ))}
+        <div className="employees" data-aos="fade-in">
+            <div className='title-container text-center'>
+                <h1>Hér er Teymið okkar</h1>
+            </div>
+            <div className='cards-container'>
+                <div className='container-fluid'>
+                    <div className='row'>
+                        {employees.map((employee) => (
+                            <div key={employee.id} className='col-xs-12 col-md-6 col-lg-4'>
+                                <div className='card'>
+                                    <img src={employee.image} alt={`${employee.name}`} className="card-img-top" />
+                                    <div className="card-body">
+                                        <p className='job-title'>{employee.jobTitle}</p>
+                                        <h4 className='employee-name'>{employee.name}</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </div>
         </div>
     );
+    
 }
 
 export default Employees;

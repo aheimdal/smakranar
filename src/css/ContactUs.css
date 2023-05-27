@@ -1,0 +1,49 @@
+/* CSS Styles */
+.contact-form {
+    width: 800px;
+    margin: 2rem;
+    padding: 2rem;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form .form-group {
+    margin-bottom: 1.5em;
+}
+
+.contact-form .form-control {
+    padding: 0.75em;
+    border: 1px solid #ced4da;
+    border-radius: 0.25em;
+}
+
+.contact-form button {
+    margin-top: 1rem;
+    width: 100%;
+    padding: 0.75em;
+    background-color: #007bff;
+    border: none;
+    color: white;
+    font-size: 1em;
+    border-radius: 0.25em;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.contact-form button:disabled {
+    background-color: #6c757d;
+}
+
+.contact-form p {
+    margin-top: 1em;
+    text-align: center;
+    color: #28a745; /* Change this color based on your preference */
+}
+
+.contact-form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    min-height: 100vh;
+  }

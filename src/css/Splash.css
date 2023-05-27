@@ -1,0 +1,102 @@
+/* CSS file: Splash.css */
+
+.splash {
+    position: relative; /* This sets the base for absolutely positioned child elements */
+    width: 100%; /* Make the splash section span the full width of the page */
+    height: 100vh; /* Make the splash section span the full height of the viewport */
+    overflow: hidden; /* Prevents spillover of child elements */
+    background-color: black;
+  }
+  
+  .hero-image {
+    position: absolute; /* Allows us to layer elements */
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-size: cover; /* Ensures the background image covers the full section */
+    background-position: center; /* Centers the background image */
+    opacity: 40%;
+  }
+  
+  .hero-content {
+    position: relative; /* This ensures the content is layered above the image */
+    z-index: 2; /* Places the content above the hero image */
+    text-align: center; /* Centers the text horizontally */
+    top: 50%; /* Positions the top of the element at the middle of its parent */
+    left: 50%; /* Positions the left of the element at the middle of its parent */
+    transform: translate(-50%, -50%); /* Centers the element completely */
+    color: #fff; /* White color for the text for visibility on the image */
+  }
+  
+  .hero-title {
+    font-size: 6rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 3rem;
+  }
+  
+  .hero-content a {
+    display: inline-block; /* Allows margins to be applied */
+    margin: 0.5rem; /* Space between the buttons */
+  }
+
+  /* Media queries for mobile device */
+@media only screen and (max-width: 768px) {
+    .hero-title {
+      font-size: 3rem; /* Reduce the font size for small screens */
+    }
+  
+    .hero-subtitle {
+      font-size: 1.5rem; /* Reduce the font size for small screens */
+    }
+  
+    .hero-content a {
+      margin: 0.2rem; /* Reduce the space between the buttons for small screens */
+    }
+  }
+  
+  /* You can adjust the selectors as needed if your buttons have different classes */
+
+  .btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+  
+  .btn-primary:hover,
+  .btn-primary:focus {
+    background-color: darken(var(--primary-color), 10%); /* Darken the color by 10% when hovered or focused */
+    border-color: darken(var(--primary-color), 10%);
+  }
+  
+  .btn-primary:active {
+    background-color: darken(var(--primary-color), 20%); /* Darken the color by 20% when active */
+    border-color: darken(var(--primary-color), 20%);
+  }
+  
+  .btn-secondary {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+  }
+  
+  .btn-secondary:hover,
+  .btn-secondary:focus {
+    background-color: lighten(var(--secondary-color), 10%); /* Lighten the color by 10% when hovered or focused */
+    border-color: lighten(var(--secondary-color), 10%);
+  }
+  
+  .btn-secondary:active {
+    background-color: lighten(var(--secondary-color), 20%); /* Lighten the color by 20% when active */
+    border-color: lighten(var(--secondary-color), 20%);
+  }
+  
+  .slogan-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: var(--secondary-text-color);
+    background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+    min-height: 350px;
+  }

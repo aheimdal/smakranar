@@ -1,0 +1,69 @@
+#aboutus{
+  background-color: var(--primary-color);
+  min-height: calc(100vh - 5rem);
+  max-width: 100%;
+  display: flex;
+  align-items: center; /* This will vertically center the contents */
+  justify-content: center; /* This will horizontally center the contents */
+}
+
+.content-container {
+  padding-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  width: 90%; /* Reduced the width for better centering and more space on the sides */
+  margin: 0 auto; /* to center the container */
+  padding-bottom: 2rem;
+}
+
+.content-container img {
+  border-radius: 10px;
+  width: 55%; /* Increased the width of the image */
+  max-width: 100%; /* Ensure image doesn't exceed its container */
+}
+
+.text-container {
+  width: 40%; /* Reduced to match increased image width */
+}
+
+.text-container h2{
+  font-size: 3rem;
+  font-weight: bold;
+  color: var(--secondary-text-color);
+}
+
+.text-container p{
+  font-size: 1.5rem;
+  color: var(--secondary-text-color);
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.btn-aboutus {
+  border-radius: 10px;
+  height: 3rem;
+  width: 15rem;
+  display: flex;
+  font-size: 1.5rem;
+  justify-content: center;
+  align-items:center;
+  margin-top: 2rem;
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-text-color);
+  color: var(--secondary-text-color);
+  transition: all 0.5s;
+}
+
+.btn-aboutus:hover,
+.btn-aboutus:focus {
+  background-color: lighten(var(--primary-color), 10%); /* Lighten the color by 10% when hovered or focused */
+  border-color: lighten(var(--secondary-text-color), 10%);
+}
+
+.btn-aboutus:active {
+  background-color: lighten(var(--primary-color), 20%); /* Lighten the color by 20% when active */
+  border-color: lighten(var(--secondary-text-color), 20%);
+}

@@ -1,0 +1,101 @@
+:root {
+    --footer-background-color: #1c1c1c;
+    --footer-text-color: #fff;
+    --footer-link-color: #fff;
+    --footer-link-hover-color: #ddd;
+    --info-background-color: #252525;
+    --info-text-color: #fff;
+    --info-link-color: #fff;
+    --info-link-hover: #ddd;
+}
+
+.footer {
+    width: 100%;
+    background-color: var(--footer-background-color);
+    color: var(--footer-text-color);
+    bottom: 0;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: auto;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-content a {
+    color: var(--footer-link-color);
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+.footer-content a:hover {
+    color: var(--footer-link-hover-color);
+}
+
+.footer-navigation{
+    display: flex;
+    flex-direction: column;
+    line-height: 2rem;
+    text-align: left;
+}
+
+.info-container {
+    display: flex;
+    justify-content: center;
+    background-color: var(--info-background-color);
+    /* sets the background color */
+    color: var(--info-text-color);
+    /* sets the color of the text */
+    padding-bottom: 5rem;
+    font-size: 1.3rem;
+}
+
+.web-info {
+    display: flex;
+    flex-direction: column;
+    padding-right: 10rem;
+}
+
+.web-info h1 {
+    font-size: 3rem;
+}
+
+.web-info .web-info-link {
+    font-size: 1.3rem;
+    padding-left: 10px;
+    color: var(--info-text-color);
+}
+
+.web-info .web-info-link:hover {
+    text-decoration: none;
+    color: var(--info-link-hover);
+}
+
+.description-container {
+    width: 25%;
+    text-align: center;
+}
+
+.description-container h1 {
+    font-size: 3rem;
+}
+
+.address-container{
+    display: flex;
+    flex-direction: column;
+    padding-left: 10rem;
+}
+
+.address-container h1{
+    font-size: 3rem;
+}
+
+.address-text{
+    font-size: 1.3rem;
+    padding-left: 10px;
+}
