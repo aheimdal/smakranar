@@ -22,13 +22,17 @@
     margin-top: 1rem;
     width: 100%;
     padding: 0.75em;
-    background-color: #007bff;
+    background-color:var(--primary-color);
     border: none;
     color: white;
     font-size: 1em;
     border-radius: 0.25em;
     cursor: pointer;
-    transition: background-color 0.2s;
+    transition: background-color 0.4s;
+}
+
+.contact-form button:hover {
+    background-color: red;
 }
 
 .contact-form button:disabled {
@@ -43,7 +47,7 @@
 
 .contact-form-container {
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    min-height: 100vh;
-  }
+    justify-content: center;  /* Center along the vertical axis */
+    align-items: center;      /* Center along the horizontal axis */
+    height: 100vh;            /* Take up the full viewport height */
+}

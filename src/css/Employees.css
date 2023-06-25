@@ -5,23 +5,31 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background: linear-gradient(to bottom, var(--primary-color), rgba(37,37,37,1));
 }
 
-.title-container {
+.employee-title-container {
   display: flex;
   justify-content: center;
   width: 100%;
   padding-bottom: 20px;
 }
 
-.cards-container {
+.employee-title-container h1{
+  padding-top: 5rem;
+  font-size: 6rem;
+  color: var(--secondary-text-color);
+  -ms-text-kashida-space: 1rem;
+}
+
+.employee-cards-container {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
   width: 100%;
 }
 
-.card {
+.employee-card {
   display: flex;
   flex-direction: column;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -31,68 +39,83 @@
   background-color: white;
   height: auto;
   overflow: hidden;
+  position: relative; /* added this */
   cursor:default;
+  height: 600px;
 }
 
-.text-center {
+.employee-text-center {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
-.card:hover {
+.employee-card:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.3);
 }
 
-.card-img-top {
+.employee-card-img-top {
   border-radius: 10px;
   width: 100%;
   height: 100%; 
   object-fit: cover;
+  position: absolute; /* added this */
+  top: 0; /* added this */
+  left: 0; /* added this */
 }
 
-.card-body {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
+.employee-card-body {
+  position: relative;
   padding: 15px;
   color: var(--secondary-text-color);
   background: linear-gradient(transparent, rgba(0,0,0,0.7));
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+  z-index: 1; /* added this */
 }
 
-.job-title{
-  position: absolute;
+.employee-job-title{
   font-size: 2rem;
-  left: 2rem;
-  bottom: 4rem;
+  max-width: fit-content;
+}
+
+.employee-red-line {
+  width: 100%;
+  height: 2px;
+  background-color: var(--primary-color);
 }
 
 .employee-name{
-  position: absolute;
   font-size: 4rem;
-  left: 2rem;
-  bottom: 1rem;
   text-align: left;
-  white-space: nowrap; 
-  overflow: hidden; 
-  text-overflow: ellipsis; 
-  max-width: 200px; /* adjust this to manage the long name */
-}
-
-@media (max-width: 1200px) { 
-  .card {
-    width: 45%; /* You can adjust as per your requirement */
-  }
+  white-space: normal; 
+  overflow: visible; 
+  text-overflow: clip; 
+  max-width: 70%; 
+  max-height: fit-content;
 }
 
 @media screen and (max-width: 768px) {
-  .card {
+  .employee-title-container h1{
+    font-size: 3rem; /* adjust font size for mobile */
+  }
+  .employee-card {
     width: 100%;
-    height: auto;
+    height: 400px;
+    margin: 2%; /* adding some margin for mobile */
   }
 
-  .card-img-top {
-    height: 200px;
+  .employee-card-img-top {
+    height: 100%; /* adjust height for mobile */
+  }
+
+  .employee-job-title{
+    font-size: 1rem; /* adjust font size for mobile */
+  }
+
+  .employee-name{
+    font-size: 2rem; /* adjust font size for mobile */
   }
 }

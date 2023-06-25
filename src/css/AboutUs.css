@@ -67,3 +67,34 @@
   background-color: lighten(var(--primary-color), 20%); /* Lighten the color by 20% when active */
   border-color: lighten(var(--secondary-text-color), 20%);
 }
+
+@media screen and (max-width: 768px) {
+  .content-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .content-container img {
+    width: 90%; /* Full width on mobile */
+    margin-bottom: 1rem; /* Space between the image and the text */
+  }
+
+  .text-container {
+    width: 100%; /* Full width on mobile */
+    text-align: center; /* Center the text */
+  }
+
+  .text-container h2{
+    font-size: 2.5rem; /* Adjust as needed */
+  }
+
+  .text-container p{
+    font-size: 1.2rem; /* Adjust as needed */
+  }
+
+  .btn-aboutus {
+    width: 100%; /* Full width on mobile */
+    margin-top: 2rem;
+    margin-bottom: -1rem;
+  }
+}

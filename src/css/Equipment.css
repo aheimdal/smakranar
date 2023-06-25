@@ -1,48 +1,187 @@
-/* This styles the Card components. You can adjust as per your requirements. */
+/* This styles the Card components. */
 .equipment-section {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background: linear-gradient(var(--primary-color), var(--secondary-color));
 }
+
+.equipment-title-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding-bottom: 20px;
+  }
   
-.equipment-title {
-    text-align: center;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-    color: var(--primary-text-color);
+  .equipment-title-container h1{
+    padding-top: 4rem;
+    font-size: 6rem;
+    color: var(--secondary-text-color);
+    -ms-text-kashida-space: 1rem;
+  }  
+
+.equipment-title h1{
+    font-size: 3rem;
+    font-weight: bold;
+    padding-top: 2rem;
+    color: var(--secondary-text-color);
+}
+
+.equipment-group-container{
+    width: calc(90vw - 4rem);
 }
   
 .equipment-cards-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
-    padding: 20px;
+    justify-content: space-around; /* Changes alignment */
+    padding: 2rem; /* Padding from the screen edges */
 }
 
 .equipment-card {
-    width: 60%;  /* adjust this value to your liking */
-    margin: 1em;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: calc(50% - 4rem); /* Allows for 2 cards per row with added space */
+    min-height: 350px;
+    position: relative;
+    overflow: hidden;
+    margin: 2rem; /* Adds space around each card */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
     transition: 0.3s;
-    cursor: pointer;
+}
+
+.equipment-group-title {
+    text-align: center; 
+    color: var(--secondary-text-color); 
+    font-size: 3rem; 
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.equipment-name-container {
+    position: absolute;
+    bottom: 20px; /* Adjust as needed */
+    left: 20px; /* Adjust as needed */
+    width: 100%;
+    text-align: left;
 }
 
 .equipment-card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.8);
 }
 
-.equipment-card-img-top {
+.equipment-card-img {
+    width: 100%;
+    height: 350px;
     object-fit: cover;
-    height: 15em;
+    cursor: pointer;
+    transition: opacity ,1s ease-in-out;
 }
 
-.equipment-card-body {
+.equipment-card:hover .equipment-card-img {
+    opacity: 0.2;
+}
+
+.equipment-text-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
 }
-  
-/* This styles the Modal components. You can adjust as per your requirements. */
+
+.equipment-text-container .card-title {
+    font-size: 2rem;
+}
+
+.equipment-card:hover .equipment-text-container {
+    opacity: 0.8;
+}
+
+.equipment-name-default {
+    font-size: 2.5rem;
+    font-weight: 800;
+    position: absolute;
+    bottom: 5px; /* Adjust as needed */
+    left: 5px; /* Adjust as needed */
+    padding: 5px;
+    background: rgba(0, 0, 0, 0.6);
+    color: white; /* Or any color that makes the text visible on your card */
+    transition: opacity .3s ease-in-out;
+}
+
+.equipment-card:hover .equipment-name-default {
+    opacity: 0;
+}
+
+.equipment-name-hover {
+    font-size: 2.5rem; /* Increased the font-size */
+    font-weight: 700; /* Made the text bolder */
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+}
+
+.equipment-card:hover .equipment-name-hover {
+    opacity: 1;
+}
+
+.equipment-text-container .card-text {
+    font-size: 1.4rem; /* Increase the value as needed */
+    font-weight: 600;
+}
+
+.equipment-buttons-container {
+    display: flex;
+    justify-content: space-around; /* To add space around items */
+    width: 100%; /* Full width */
+    padding: 0 2rem; /* 1rem padding from left and right */
+}
+
+.equipment-button {
+    flex: 1;
+    margin: 0 1rem;
+    align-self: flex-end;
+    background-color: var(--primary-color);
+    color: var(--secondary-text-color);
+    font-size: 1.2rem; /* Increase font-size as needed */
+    padding: 10px 20px; /* Increase padding as needed */
+    border-radius: 10px;
+}
+
+
+.equipment-button:hover {
+    scale: 1.2;
+    color: var(--primary-color);
+    transition: 0.5s ease-in-out;
+}
+ 
+.equipment-button:active, .equipment-button:focus {
+    background-color: var(--primary-color) !important;
+    color: var(--secondary-text-color) !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* This styles the Modal components. */
+.equipment-modal {
+    width: 100%;
+}
+
+.equipment-modal .modal-dialog{
+    max-width: 100%;
+    width: 1200px;
+}
+
 .equipment-modal-header {
     background-color: var(--secondary-color);
     color: var(--secondary-text-color);
@@ -54,18 +193,61 @@
 
 .equipment-modal-images {
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+    background-color: var(--secondary-color);
+    padding: 1rem;
 }
 
 .equipment-modal-images img {
-    width: 100%;
+    width: calc(100% - 2rem);
     object-fit: cover;
-    height: 15em;
-    margin: 1em;
+    padding: 1rem;
 }
 
-.button {
-    background-color: var(--primary-color);
-    color: var(--primary-text-color);
+.modal-content{
+    background-color: var(--secondary-color);
+}
+
+.custom-close-button {
+    background-color: var(--primary-color) !important;
+    color: white !important;
+}
+
+.custom-close-button:hover {
+    background-color: red !important;
+}
+
+/* Mobile styles */
+@media screen and (max-width: 600px) {
+
+    .equipment-group-container{
+        width: 100vw;
+    }
+
+    .equipment-card {
+        width: calc(100% - 2rem); /* Allows for 1 card per row with added space */
+    }
+
+    .equipment-title-container h1{
+        font-size: 3rem; /* adjust font size for mobile */
+      }
+
+    .equipment-text-container .card-title {
+        font-size: 1.5rem; /* Smaller card title font-size */
+    }
+
+    .equipment-text-container .card-text {
+        font-size: 1.2rem; /* Smaller card text font-size */
+    }
+
+    .equipment-button {
+        font-size: 1rem; /* Smaller button font-size */
+    }
+
+    .equipment-name-default, .equipment-name-hover {
+        font-size: 2rem; /* Smaller equipment name font-size */
+    }
+
 }

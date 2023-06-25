@@ -32,12 +32,14 @@ const ProjectGallery = () => {
     return (
         <div id="projectGallery">
             <div className="project-gallery-container">
+            <div className="project-title-container">    {/* This is the new block */}
+                    <h1 className="project-title">Verkefni</h1>
+                </div>
             {projects.map(project => (
                 <Card className="project-card" onClick={() => handleOpenModal(project)}>
                     <Card.Img variant="top" src={project.images[0]} className="d-inline-block align-top" />
                     <Card.Body>
                         <Card.Title>{project.name}</Card.Title>
-                        <Card.Text>{project.description}</Card.Text>
                     </Card.Body>
                 </Card>
             ))}
@@ -47,7 +49,15 @@ const ProjectGallery = () => {
                 </Modal.Header>
                 <Modal.Body>
                     <div className="modal-text">
+                        <div className="modal-text-header-container">
+                            <h1 className="modal-text-header">Staðsetning</h1>
+                            <div className='modal-text-red-line'></div>
+                        </div>
                         <p>{selectedProject ? selectedProject.location : ''}</p>
+                        <div className="modal-text-header-container">
+                            <h1 className="modal-text-header">Lýsing</h1>
+                            <div className='modal-text-red-line'></div>
+                        </div>
                         <p>{selectedProject ? selectedProject.description : ''}</p>
                     </div>
                     <div className="modal-images">
@@ -57,7 +67,7 @@ const ProjectGallery = () => {
                     </div>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="secondary" onClick={handleCloseModal}>Close</Button>
+                    <Button variant="primary" onClick={handleCloseModal}>Close</Button>
                 </Modal.Footer>
             </Modal>
         </div>

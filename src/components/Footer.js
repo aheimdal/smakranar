@@ -8,16 +8,18 @@ const Footer = () => {
   return (
     <>
       <div className='info-container'>
-        <div className='web-info'>
-          <h1>VEFURINN</h1>
-          <Link className="web-info-link" to="/aboutus">Um Okkur</Link>
-          <Link className="web-info-link" to="/equipment">Vinnutæki</Link>
-          <Link className="web-info-link" to="/projects">Verkefni</Link>
-          <Link className="web-info-link" to="/contactus">Hafa Samband</Link>
-        </div>
-        <div className='description-container'>
-          <h1>SMÁKRANAR</h1>
-          <p className='desc-text'>Smákranar hafa tekið þátt í nokkrum af stærstu byggingaframkvæmdum á Íslandi frá því þeir voru stofnaðir árið 2003</p>
+        <div className='mobile-view-container'>
+          <div className='web-info'>
+            <h1>VEFURINN</h1>
+            <Link className="web-info-link" to="/aboutus">Um Okkur</Link>
+            <Link className="web-info-link" to="/equipment">Vinnutæki</Link>
+            <Link className="web-info-link" to="/projects">Verkefni</Link>
+            <Link className="web-info-link" to="/contactus">Hafa Samband</Link>
+          </div>
+          <div className='description-container'>
+            <h1>SMÁKRANAR</h1>
+            <p className='desc-text'>Smákranar hafa tekið þátt í nokkrum af stærstu byggingaframkvæmdum á Íslandi frá því þeir voru stofnaðir árið 2003</p>
+          </div>
         </div>
         <div className='address-container'>
           <h1>HAFA SAMBAND</h1>

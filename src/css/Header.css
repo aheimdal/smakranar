@@ -48,10 +48,12 @@
   .navbar.scrolled .navbar-brand img {
     height: 30px; /* Adjust this value to make the logo smaller when scrolled */
     width: 150px;
+    margin-bottom: 1rem;
 }
 
   .navbar-collapse {
-    justify-content: flex-end;
+    display: flex;
+    justify-content: center;
   }
   
   .nav-link {
@@ -65,44 +67,56 @@
     color: var(--secondary-color) !important;
   }
   
-  /* Responsive Design */
-  @media screen and (max-width: 768px) {
-    .navbar {
-      padding: 10px;
-    }
-  
-    .navbar-toggle {
-      display: block; /* Show the collapse button */
-    }
-  
-    .navbar-collapse {
-      display: flex; /* Hide the links */
-    }
-  
-    .nav-link {
-      display: flex;
-      justify-content: center;
-      font-size: 1rem;
-    }
+ /* Responsive Design */
+@media screen and (max-width: 768px) {
+  .navbar {
+    padding: 10px;
   }
-  
-  @media screen and (min-width: 769px) {
-    .navbar-toggle {
-      display: none; /* Hide the collapse button on larger screens */
-    }
-  
-    .navbar-collapse {
-      display: flex; /* Show the links on larger screens */
-    }
+
+  .navbar-toggle {
+    display: block; /* Show the collapse button */
   }
-  
-  @media screen and (max-width: 575px) {
-    .navbar-brand img {
-      width: 200px;
-      margin-left: 1rem;
-    }
-  
-    .nav-link {
-      font-size: 0.9rem;
-    }
+
+  .navbar-collapse {
+    display: none; /* Hide the links */
+    background-color: var(--background-color);
+    flex-direction: column;
+    position: fixed;
+    top: 80px; /* Adjust this according to the height of your navbar */
+    left: 0;
+    width: 100%; /* Set the width to full screen */
+    transition: transform 0.3s ease-in-out; /* Smooth transition */
+    transform: translateY(-100%); /* Hide it off the top of the screen */
   }
+
+  .navbar-collapse.show {
+    transform: translateY(0); /* Show it when the collapse button is toggled */
+  }
+
+  .nav-link {
+    display: flex;
+    font-size: 1rem;
+    justify-content: center; /* Center the links */
+    padding: 15px 0; /* Give some vertical padding */
+  }
+
+  .navbar-brand img {
+    margin-left: 1rem !important;
+    transition: all 0.5s;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .navbar-toggle {
+    display: none; /* Hide the collapse button on larger screens */
+  }
+
+  .navbar-collapse {
+    display: flex; /* Show the links on larger screens */
+    position: static;
+    transform: none;
+    width: auto;
+    background-color: transparent;
+  }
+
+}

@@ -1,30 +1,160 @@
-/* CSS Styles */
 .project-gallery-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     padding: 2em;
+    background: linear-gradient(var(--primary-color), var(--secondary-color));
+}
+
+.project-title-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding-bottom: 20px;
+}
+  
+.project-title-container h1 {
+    padding-top: 5rem;
+    font-size: 6rem;
+    color: var(--secondary-text-color);
+    -ms-text-kashida-space: 1rem;
 }
 
 .project-card {
     margin: 1em;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
-    width: 22rem;
+    width: 20%; /* Setting the card width to 20% */
     cursor: pointer;
+    border-radius: 5%;
+    position: relative; /* make this relative so child absolute positioning will be relative to this container */
+    overflow: hidden; /* This makes sure that the content does not go outside the box */
+}
+
+.project-card img {
+    padding: 5px;
+    border-radius: 5%;
+    width: 100%; /* The image takes the full width of the card */
+    height: 100%; /* The image height is set to auto to maintain the aspect ratio */
+    object-fit: cover; /* The image will be resized to cover the entire width of the container without distorting the aspect ratio */
+    transition: 0.3s ease; /* for smooth transition effect */
+}
+
+.project-card:hover img {
+    transform: scale(1.1); /* Zoom image on hover */
+}
+
+.project-card .card-body {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Adding a semi-transparent background */
+    color: white; /* Making the text color white for visibility */
+}
+
+.project-card .card-title,
+.project-card .card-text {
+    color: white; /* Making the text color white for visibility */
+    font-weight: 900;
+    font-size: 2rem;
+}
+
+/* Adding some padding to the Card Body */
+.project-card .card-body .card-title,
+.project-card .card-body .card-text {
+    padding: 0.5rem;
 }
 
 .project-card:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    transform: scale(1.05); /* Slight growth on hover */
+}
+
+
+.modal-header{
+    border-bottom-color: var(--primary-color);
+}
+
+.modal-footer{
+    border-top-color: var(--primary-color);
+}
+
+.modal-title{
+    font-size: 3rem;
+    color: var(--secondary-text-color);
+}
+
+.modal-body {
+    display: flex; /* Change the layout to flex */
+    flex-wrap: nowrap; /* Do not allow content to wrap */
+    justify-content: space-around; /* Add space around items */
+    background-color: white; /* White background for the modal */
+    height: 80vh; /* Add a height to modal-body to allow inner content to scroll */
+    width: 98%;
+    margin: 10px 0px 10px 15px;
+    overflow: hidden; /* Hide the overflowed content */
 }
 
 .modal-text {
-    padding: 1em 0;
+    font-size: 2rem;
+    flex: 0 0 30%; /* Flex-grow, flex-shrink, flex-basis */
+    padding: 1em;
     text-align: justify;
+}
+
+.modal-text-header-container {
+    display: inline-block; 
+    position: relative;
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.modal-text-red-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-color);
+}
+
+.modal-images {
+    flex: 1 0 65%; /* Flex-grow, flex-shrink, flex-basis */
+    overflow-y: auto; /* Add a scrollbar when the content overflows */
+    padding: 1em;
 }
 
 .modal-images img {
     width: 100%;
     height: auto;
+    object-fit: cover;
     margin-bottom: 1em;
+}
+
+.modal-dialog {
+    max-width: 90%; /* Modal is almost full screen width */
+}
+
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+    .project-card {
+        width: 100%; /* Full width on small screens */
+    }
+
+    .project-title-container h1 {
+        font-size: 4rem; /* Smaller title on small screens */
+    }
+
+    .modal-body {
+        flex-direction: column; /* Stack content vertically */
+    }
+
+    .modal-text, .modal-images {
+        flex-basis: 100%; /* Each takes up full width */
+    }
+
+    .modal-dialog {
+        max-width: 90%; /* Modal is almost full screen width */
+    }
 }

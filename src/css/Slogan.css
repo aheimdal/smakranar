@@ -23,3 +23,14 @@
     margin-bottom: 1rem;
   }
   
+  @media screen and (max-width: 768px) {
+    .slogan-title {
+      font-size: 2rem; /* Adjust font size for mobile */
+    }
+  
+    .slogan-text {
+      font-size: 1rem; /* Adjust font size for mobile */
+      line-height: 1.4; /* Adjust line height for mobile */
+      max-width: 90%; /* Adjust max-width for mobile */
+    }
+  }

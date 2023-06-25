@@ -16,20 +16,35 @@ function Employees() {
         AOS.init({ duration: 2000 });
     }, []);
 
+    window.onload = function() {
+        var jobTitles = document.getElementsByClassName('job-title');
+        
+        for (var i = 0; i < jobTitles.length; i++) {
+          var width = jobTitles[i].offsetWidth;
+          var redLine = jobTitles[i].getElementsByClassName('red-line')[0];
+          
+          redLine.style.width = width + 'px';
+        }
+      };
+      
+
     return (
-        <div className="employees" data-aos="fade-in">
-            <div className='title-container text-center'>
-                <h1>Hér er Teymið okkar</h1>
+        <div className="employees">
+            <div className='employee-title-container text-center'>
+                <h1>TEYMIÐ OKKAR</h1>
             </div>
-            <div className='cards-container'>
-                <div className='container-fluid'>
+            <div className='employee-cards-container'>
+                <div className='employee-container-fluid'>
                     <div className='row'>
                         {employees.map((employee) => (
                             <div key={employee.id} className='col-xs-12 col-md-6 col-lg-4'>
-                                <div className='card'>
-                                    <img src={employee.image} alt={`${employee.name}`} className="card-img-top" />
-                                    <div className="card-body">
-                                        <p className='job-title'>{employee.jobTitle}</p>
+                                <div className='employee-card' data-aos="fade-in">
+                                    <img src={employee.image} alt={`${employee.name}`} className="employee-card-img-top" />
+                                    <div className="employee-card-body">
+                                        <div className='employee-job-title'>
+                                            {employee.jobTitle}
+                                        <div className='employee-red-line'></div>
+                                            </div>
                                         <h4 className='employee-name'>{employee.name}</h4>
                                     </div>
                                 </div>
