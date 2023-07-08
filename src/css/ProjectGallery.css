@@ -2,19 +2,20 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding: 2em;
     background: linear-gradient(var(--primary-color), var(--secondary-color));
+    padding-bottom: 10rem;
 }
 
 .project-title-container {
     display: flex;
     justify-content: center;
     width: 100%;
+    margin-top: 50px;
     padding-bottom: 20px;
 }
   
 .project-title-container h1 {
-    padding-top: 5rem;
+    padding-top: 4rem;
     font-size: 6rem;
     color: var(--secondary-text-color);
     -ms-text-kashida-space: 1rem;
@@ -26,6 +27,7 @@
     transition: 0.3s;
     width: 20%; /* Setting the card width to 20% */
     cursor: pointer;
+    margin: 0 3rem 3rem 3rem;
     border-radius: 5%;
     position: relative; /* make this relative so child absolute positioning will be relative to this container */
     overflow: hidden; /* This makes sure that the content does not go outside the box */

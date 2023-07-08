@@ -27,6 +27,7 @@
     left: 50%; /* Positions the left of the element at the middle of its parent */
     transform: translate(-50%, -50%); /* Centers the element completely */
     color: #fff; /* White color for the text for visibility on the image */
+    margin-top: -50px;
   }
   
   .hero-title {

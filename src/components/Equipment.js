@@ -36,7 +36,7 @@ const Equipment = () => {
         <div id="equipment">
             <div className='equipment-section'>
                 <div className='equipment-title-container'>
-                    <h1 className="equipment-title">Vehicles and Equipment</h1>
+                    <h1 className="equipment-title">TÆKI OG BÚNAÐUR</h1>
                 </div>
                 {Object.entries(groupedEquipment).map(([make, items]) => (
                     <div key={make} className="equipment-group-container">
@@ -49,9 +49,6 @@ const Equipment = () => {
                                         src={item.images[0]}
                                         className="equipment-card-img"
                                     />
-                                    <div className="equipment-name-container">
-                                        <div className="equipment-name-default">{item.name}</div>
-                                    </div>
                                     <div className="equipment-text-container">
                                         <div className="equipment-name-hover">{item.name} ({item.year})</div>
                                         <Card.Text>{item.description}</Card.Text>

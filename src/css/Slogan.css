@@ -6,7 +6,7 @@
     text-align: center; 
     color: var(--secondary-text-color);
     background: linear-gradient(to bottom, var(--primary-color), rgba(37,37,37,1));
-    min-height: 350px;
+    min-height: 600px;
     padding: 2rem;
   }
   

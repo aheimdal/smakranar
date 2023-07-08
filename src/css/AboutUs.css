@@ -13,6 +13,7 @@
   justify-content: space-between;
   width: 90%; /* Reduced the width for better centering and more space on the sides */
   margin: 0 auto; /* to center the container */
+  margin-top: 75px;
   padding-bottom: 2rem;
 }
 

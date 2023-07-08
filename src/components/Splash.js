@@ -13,7 +13,6 @@ const Splash = () => {
       <div className="hero-content">
         <h1 className="hero-title">Þegar stærðin skiptir öllu</h1>
         <p className="hero-subtitle">Traust fyrirtæki síðan 2003</p>
-        <Button variant="secondary" size="lg" href="/aboutus">Um Okkur</Button>
         <Button variant="primary" size="lg" href="/contactus">Hafðu Samband</Button>
       </div>
     </div>
