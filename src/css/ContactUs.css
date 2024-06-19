@@ -1,53 +1,77 @@
-/* CSS Styles */
-.contact-form {
-    width: 800px;
-    margin: 2rem;
-    padding: 2rem;
-    background-color: #f9f9f9;
-    border-radius: 4px;
-    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+.contact-us-section{
+  height: 65vh;
+  background: linear-gradient(var(--primary-color), var(--secondary-color));
+  padding-top: 5px;
 }
 
-.contact-form .form-group {
-    margin-bottom: 1.5em;
+.contact-header{
+  background-color: var(--primary-color);
+  color: var(--secondary-text-color);
+  text-align: center;
 }
 
-.contact-form .form-control {
-    padding: 0.75em;
-    border: 1px solid #ced4da;
-    border-radius: 0.25em;
+.contact-text a {
+  color: var(--primary-text-color);
+  text-decoration: none;
+  margin-left: 8px;
 }
 
-.contact-form button {
-    margin-top: 1rem;
-    width: 100%;
-    padding: 0.75em;
-    background-color:var(--primary-color);
-    border: none;
-    color: white;
-    font-size: 1em;
-    border-radius: 0.25em;
-    cursor: pointer;
-    transition: background-color 0.4s;
+.contact-text {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 15px;
 }
 
-.contact-form button:hover {
-    background-color: red;
+.contact-icon {
+  font-size: 24px;
+  color: var(--primary-text-color);
 }
 
-.contact-form button:disabled {
-    background-color: #6c757d;
+.card-container {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
+  margin: 0 auto;
+  width: calc(100% - 20px);
 }
 
-.contact-form p {
-    margin-top: 1em;
-    text-align: center;
-    color: #28a745; /* Change this color based on your preference */
+.card-container:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-.contact-form-container {
-    display: flex;
-    justify-content: center;  /* Center along the vertical axis */
-    align-items: center;      /* Center along the horizontal axis */
-    height: 100vh;            /* Take up the full viewport height */
+.contact-text-container {
+  padding: 20px;
+  flex: 0 0 30%; /* Take up 30% of the card width */
+}
+
+.contact-image-container {
+  flex: 0 0 70%; /* Take up 70% of the card width */
+}
+
+.contact-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+@media (min-width: 768px) {
+  .card-container {
+    max-width: 80%;
+  }
+
+  .d-flex.flex-column.flex-md-row.align-items-center.w-100 {
+    flex-direction: row;
+  }
+
+  .contact-text-container {
+    order: 1;
+  }
+
+  .contact-image-container {
+    order: 2;
+  }
+
+  .contact-image {
+    height: auto;
+  }
 }

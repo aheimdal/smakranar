@@ -1,122 +1,174 @@
-/* Header.css */
+/* Header.css adjustments for smooth transitions and adding a placeholder */
+
+/* Placeholder for the header to maintain layout stability */
+.header-placeholder {
+  height: 80px; /* Match the initial navbar height */
+  transition: height 0.5s ease; /* Smooth transition for height */
+}
+
+/* Adjust when scrolled */
+.navbar.scrolled + .header-placeholder {
+  height: 50px; /* Match the scrolled navbar height */
+}
+
 .navbar {
-    display: flex;
-    align-items: center;
-    padding: 0 15px;
-    background-color: var(--background-color);
-    color: grey;
-    position: sticky;
-    top: 0;
-    transition: all 0.3s ease;
-    height: 80px;
-    z-index: 3;
-    transition: all 0.5s;
-  }
-  
-  .navbar .nav-link {
-    font-size: 2rem; /* Adjust this value to make the links larger */
-    font-weight: 500;
-    font-family: 'Rajdhani', sans-serif;
-    margin-right: 15px;
-    transition: all 0.5s;
+  display: flex;
+  align-items: center;
+  padding: 20px 15px;
+  background-color: var(--background-color);
+  color: grey;
+  position: fixed;
+  top: 0;
+  z-index: 3;
+  width: 100%; /* Ensure navbar spans the entire width */
+  transition: padding 0.5s ease, box-shadow 0.5s ease;
+}
+
+.navbar .nav-link {
+  font-size: 1.5rem;
+  font-weight: 500;
+  font-family: 'Rajdhani', sans-serif;
+  margin-right: 15px;
+  transition: font-size 0.5s ease;
 }
 
 .navbar .nav-link:last-child {
-  margin-right: 2rem; /* Adjust this value to add more space to the right of the last link */
+  margin-right: 1.5rem;
 }
 
-  .navbar.scrolled {
-  height: 50px;
+.navbar.scrolled {
+  box-shadow: 0 0px 0px rgba(0,0,0,0.2);
 }
 
 .navbar.scrolled .nav-link {
-  font-size: 1.5rem; /* Adjust this value to make the links smaller when scrolled */
+  font-size: 1.5rem; /* Less dramatic change to minimize layout shift */
 }
 
-  .navbar-brand {
-    display: flex;
-  }
-  
-  .navbar-brand img {
-    height: 45px;
-    width: 250px;
-    margin: 5px;
-    margin-left: 5rem;
-    transition: all 0.5s;
-  }
-  
-  .navbar.scrolled .navbar-brand img {
-    height: 30px; /* Adjust this value to make the logo smaller when scrolled */
-    width: 150px;
-    margin-bottom: 1rem;
+.navbar-brand {
+  display: flex;
 }
 
-  .navbar-collapse {
-    display: flex;
-    justify-content: center;
-  }
-  
-  .nav-link {
-    color: var(--text-color) !important;
-    font-size: 1.1rem;
-    transition: color 0.3s ease-in-out;
-    padding-right: 15px; /* Added padding-right */
-  }
-  
-  .nav-link:hover {
-    color: var(--secondary-color) !important;
-  }
-  
- /* Responsive Design */
-@media screen and (max-width: 768px) {
-  .navbar {
-    padding: 10px;
-  }
+.navbar-brand img {
+  height: 40px;
+  width: 225px;
+  margin: 5px;
+  margin-left: 5rem;
+  transition: height 0.5s ease, width 0.5s ease;
+}
 
-  .navbar-toggle {
-    display: block; /* Show the collapse button */
-  }
+.navbar.scrolled .navbar-brand img {
+  height: 40px;
+  width: 225px;
+}
 
+.navbar-collapse {
+  display: flex;
+  justify-content: center;
+}
+
+.nav-link {
+  color: var(--text-color) !important;
+  font-size: 1.1rem;
+  transition: color 0.3s ease-in-out;
+  padding-right: 15px;
+}
+
+.nav-link:hover {
+  color: var(--secondary-color) !important;
+}
+
+/* Responsive Design */
+
+/* This media query is for screen sizes between 768px and 1100px */
+@media screen and (min-width: 768px) and (max-width: 1100px) {
+  .navbar-toggler {
+    display: block; /* Keep the burger button visible */
+    margin-right: 30px;
+  }
+.navbar-brand {
+  display: flex;
+  position: relative;
+  z-index: 1;
+}
+
+.navbar-brand img {
+  height: 40px;
+  width: 220px;
+  margin: 5px;
+  margin-left: 2rem;
+  transition: height 0.5s ease, width 0.5s ease;
+}
   .navbar-collapse {
-    display: none; /* Hide the links */
+    display: flex; /* Keep it flex, but hidden initially using transform */
     background-color: var(--background-color);
     flex-direction: column;
     position: fixed;
-    top: 80px; /* Adjust this according to the height of your navbar */
+    top: 80px;
     left: 0;
-    width: 100%; /* Set the width to full screen */
-    transition: transform 0.3s ease-in-out; /* Smooth transition */
-    transform: translateY(-100%); /* Hide it off the top of the screen */
+    width: 100%;
+    transition: transform 0.3s ease-in-out;
+    transform: translateY(-100%); /* Start hidden above the view */
+    overflow: hidden; /* Ensures content doesn't overflow when menu is hidden */
   }
-
+  
   .navbar-collapse.show {
-    transform: translateY(0); /* Show it when the collapse button is toggled */
+    transform: translateY(0); /* Slide in to view */
   }
 
   .nav-link {
     display: flex;
     font-size: 1rem;
-    justify-content: center; /* Center the links */
-    padding: 15px 0; /* Give some vertical padding */
-  }
-
-  .navbar-brand img {
-    margin-left: 1rem !important;
-    transition: all 0.5s;
+    justify-content: center;
+    padding: 15px 0;
   }
 }
 
-@media screen and (min-width: 769px) {
-  .navbar-toggle {
-    display: none; /* Hide the collapse button on larger screens */
+/* This media query is for screen sizes above 1100px */
+@media screen and (min-width: 1101px) {
+  .navbar-toggler {
+    display: none; /* Hide the burger button */
   }
 
   .navbar-collapse {
-    display: flex; /* Show the links on larger screens */
-    position: static;
-    transform: none;
-    width: auto;
-    background-color: transparent;
+    display: flex; /* Display navbar items inline */
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .navbar {
+    padding: 10px;
   }
 
+  .navbar-toggler {
+    margin-right: 30px; /* Adds space on the right */
+  }
+
+  .navbar-collapse {
+    display: flex; /* Keep it flex, but hidden initially using transform */
+    background-color: var(--background-color);
+    flex-direction: column;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    transition: transform 0.3s ease-in-out;
+    transform: translateY(-100%); /* Start hidden above the view */
+    overflow: hidden; /* Ensures content doesn't overflow when menu is hidden */
+  }
+  
+  .navbar-collapse.show {
+    transform: translateY(0); /* Slide in to view */
+  }
+
+  .nav-link {
+    display: flex;
+    font-size: 1rem;
+    justify-content: center;
+    padding: 15px 0;
+  }
+
+  .navbar-brand img {
+    margin-left: 1rem;
+  }
 }

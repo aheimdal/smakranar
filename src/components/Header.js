@@ -21,20 +21,32 @@ const Header = () => {
   }, []);
 
   return (
-    <Navbar bg="light" expand="lg" className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
-      <Navbar.Brand href="/">
+    <>
+      {/* Placeholder div */}
+      <div className={`header-placeholder ${isScrolled ? 'scrolled-placeholder' : ''}`}></div>
+
+      <Navbar bg="light" expand="lg" className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
+        <Navbar.Brand href="/">
           <img src={logo} alt="Company Logo" className="d-inline-block align-top" />
-      </Navbar.Brand>
-      <Navbar.Toggle onClick={handleToggle} aria-controls="basic-navbar-nav" />
-      <div className={`navbar-collapse ${isOpen ? 'show' : ''}`}>
-        <Nav onClick={handleClose} className="ml-auto pr-3">
-          <Nav.Link href="/aboutus">UM OKKUR</Nav.Link>
-          <Nav.Link href="/equipment">VINNUTÆKI</Nav.Link>
-          <Nav.Link href="/projects">VERKEFNI</Nav.Link>
-          <Nav.Link href="/contactus">HAFA SAMBAND</Nav.Link>
-        </Nav>
-      </div>
-    </Navbar>
+        </Navbar.Brand>
+        <Navbar.Toggle onClick={handleToggle} aria-controls="basic-navbar-nav" />
+        <Navbar bg="light" expand="lg" className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
+          <Navbar.Brand href="/">
+            <img src={logo} alt="Company Logo" className="d-inline-block align-top" />
+          </Navbar.Brand>
+          <Navbar.Toggle onClick={handleToggle} aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav" className={isOpen ? 'show' : ''}>
+            <Nav onClick={handleClose} className="ml-auto pr-3">
+              <Nav.Link href="/aboutus">UM OKKUR</Nav.Link>
+              <Nav.Link href="/equipment">VINNUTÆKI</Nav.Link>
+              <Nav.Link href="/projects">VERKEFNI</Nav.Link>
+              <Nav.Link href="/contactus">HAFA SAMBAND</Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+        </Navbar>
+
+      </Navbar>
+    </>
   );
 };
 

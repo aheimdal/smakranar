@@ -1,75 +1,46 @@
-import React, { useState } from 'react';
-import { Form, Button } from 'react-bootstrap';
-import '../css/ContactUs.css'
-import Footer from './Footer';
+import React from 'react';
+import { Card, Container, Row, Col, Image } from 'react-bootstrap';
+import { FaHome, FaPhone, FaEnvelope, FaFacebookF } from 'react-icons/fa';
+import '../css/ContactUs.css';
+import glerSkalImage from '../assets/images/glerskal.jpg';
 
-const ContactForm = () => {
-    const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
-    const [message, setMessage] = useState("");
-    const [loading, setLoading] = useState(false);
-    const [responseMessage, setResponseMessage] = useState(null);
-
-    const handleSubmit = async e => {
-        e.preventDefault();
-
-        // Basic form validation
-        if (!name || !email || !message) {
-            setResponseMessage("All fields are required");
-            return;
-        }
-
-        setLoading(true);
-
-        try {
-            const response = await fetch('https://guarded-chamber-55183.herokuapp.com/email/', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ name, email, message }),
-            });
-
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            } else {
-                setResponseMessage('Email sent successfully');
-            }
-        } catch (error) {
-            setResponseMessage('Error sending email: ' + error.toString());
-        }
-
-        setLoading(false);
-        setName("");
-        setEmail("");
-        setMessage("");
-    };
-
-    return (
-        <div className="contact-form-container">
-        <Form className="contact-form" onSubmit={handleSubmit}>
-            <Form.Group>
-                <Form.Label>Name</Form.Label>
-                <Form.Control type="text" placeholder="Enter your name" value={name} onChange={e => setName(e.target.value)} />
-            </Form.Group>
-
-            <Form.Group>
-                <Form.Label>Email</Form.Label>
-                <Form.Control type="email" placeholder="Enter your email" value={email} onChange={e => setEmail(e.target.value)} />
-            </Form.Group>
-
-            <Form.Group>
-                <Form.Label>Message</Form.Label>
-                <Form.Control as="textarea" rows={3} value={message} onChange={e => setMessage(e.target.value)} />
-            </Form.Group>
-
-            <Button variant="primary" type="submit" disabled={loading}>
-                {loading ? 'Sending...' : 'Submit'}
-            </Button>
-            {responseMessage && <p>{responseMessage}</p>}
-        </Form>
-        </div>
-    );
+const ContactInfo = () => {
+  return (
+    <div className='contact-us-section'>
+    <Container className="my-5">
+      <Row className="justify-content-center">
+        <Col md={12}>
+          <Card className="text-center card-container">
+            <Card.Header as="h1" className="contact-header">Hafa Samband</Card.Header>
+            <div className="d-flex flex-column flex-md-row align-items-center w-100">
+              <div className="contact-text-container">
+                <Card.Text className="contact-text">
+                  <FaHome className="contact-icon" />
+                  <a href="https://www.google.com/maps/search/?api=1&query=Stórihjalli+15" target="_blank" rel="noopener noreferrer">Stórihjalli 15, 200 Kópavogur</a>
+                </Card.Text>
+                <Card.Text className="contact-text">
+                  <FaPhone className="contact-icon" />
+                  <a href="tel:6994241">699 4241</a>
+                </Card.Text>
+                <Card.Text className="contact-text">
+                  <FaEnvelope className="contact-icon" />
+                  <a href="mailto:ese@smakranar.is">ese@smakranar.is</a>
+                </Card.Text>
+                <Card.Text className="contact-text">
+                  <FaFacebookF className="contact-icon" />
+                  <a href="https://www.facebook.com/Smakranar" target="_blank" rel="noopener noreferrer">Facebook</a>
+                </Card.Text>
+              </div>
+              <div className="contact-image-container">
+                <Image src={glerSkalImage} alt="Company" className="contact-image" />
+              </div>
+            </div>
+          </Card>
+        </Col>
+      </Row>
+    </Container>
+    </div>
+  );
 };
 
-export default ContactForm;
+export default ContactInfo;

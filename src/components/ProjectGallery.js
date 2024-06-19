@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Card, Modal, Button } from 'react-bootstrap';
-import '../css/ProjectGallery.css'
+import '../css/ProjectGallery.css';
 
 const ProjectGallery = () => {
     const [projects, setProjects] = useState([]);
@@ -31,46 +31,47 @@ const ProjectGallery = () => {
 
     return (
         <div id="projectGallery">
-            <div className="project-gallery-container">
-            <div className="project-title-container">    {/* This is the new block */}
-                    <h1 className="project-title">Verkefni</h1>
-                </div>
-            {projects.map(project => (
-                <Card className="project-card" onClick={() => handleOpenModal(project)}>
-                    <Card.Img variant="top" src={project.images[0]} className="d-inline-block align-top" />
-                    <Card.Body>
-                        <Card.Title>{project.name}</Card.Title>
-                    </Card.Body>
-                </Card>
-            ))}
-            <Modal show={showModal} onHide={handleCloseModal}>
-                <Modal.Header closeButton>
-                    <Modal.Title>{selectedProject ? selectedProject.name : ''}</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    <div className="modal-text">
-                        <div className="modal-text-header-container">
-                            <h1 className="modal-text-header">Staðsetning</h1>
-                            <div className='modal-text-red-line'></div>
+            <div className="project-title-container">
+                <h1 className="project-title">Verkefni</h1>
+            </div>
+            <div className="project-gallery-grid">
+                {projects.map((project) => (
+                    <Card key={project.id} className="project-card" onClick={() => handleOpenModal(project)}>
+                        <div className="card-image-container">
+                            <Card.Img variant="top" src={project.images[0]} className="project-card-img" />
+                            <Card.Body className="project-card-body">
+                                <Card.Title className="project-card-title">{project.name}</Card.Title>
+                            </Card.Body>
                         </div>
-                        <p>{selectedProject ? selectedProject.location : ''}</p>
-                        <div className="modal-text-header-container">
-                            <h1 className="modal-text-header">Lýsing</h1>
-                            <div className='modal-text-red-line'></div>
+                    </Card>
+                ))}
+            </div>
+            {selectedProject && (
+                <Modal show={showModal} onHide={handleCloseModal} dialogClassName="custom-modal">
+                    <Modal.Header>
+                        <Modal.Title>{selectedProject.name}</Modal.Title>
+                        <Button type="button" className="custom-close" onClick={handleCloseModal}aria-label="Close">X</Button>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <div className="modal-text-container">
+                            <div className="modal-text">
+                                <h2>Staðsetning</h2>
+                                <p>{selectedProject.location}</p>
+                                <h2>Lýsing</h2>
+                                <p>{selectedProject.description}</p>
+                            </div>
                         </div>
-                        <p>{selectedProject ? selectedProject.description : ''}</p>
-                    </div>
-                    <div className="modal-images">
-                        {selectedProject && selectedProject.images.map((image, index) =>
-                            <img key={index} src={image} alt={`project ${selectedProject.name} image ${index + 1}`} />
-                        )}
-                    </div>
-                </Modal.Body>
-                <Modal.Footer>
-                    <Button variant="primary" onClick={handleCloseModal}>Close</Button>
-                </Modal.Footer>
-            </Modal>
-        </div>
+                        <div className="modal-images-container">
+                            {selectedProject.images.map((image, index) => (
+                                <img key={index} src={image} alt={`project ${selectedProject.name} image ${index + 1}`} className="modal-image"/>
+                            ))}
+                        </div>
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <Button variant="primary" onClick={handleCloseModal}>Loka</Button>
+                    </Modal.Footer>
+                </Modal>
+            )}
         </div>
     );
 };

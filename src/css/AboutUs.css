@@ -1,101 +1,117 @@
-#aboutus{
+#aboutus {
   background-color: var(--primary-color);
-  min-height: calc(100vh - 5rem);
-  max-width: 100%;
-  display: flex;
-  align-items: center; /* This will vertically center the contents */
-  justify-content: center; /* This will horizontally center the contents */
-}
-
-.content-container {
-  padding-top: 2rem;
-  display: flex;
-  justify-content: space-between;
-  width: 90%; /* Reduced the width for better centering and more space on the sides */
-  margin: 0 auto; /* to center the container */
-  margin-top: 75px;
-  padding-bottom: 2rem;
-}
-
-.content-container img {
-  border-radius: 10px;
-  width: 55%; /* Increased the width of the image */
-  max-width: 100%; /* Ensure image doesn't exceed its container */
-}
-
-.text-container {
-  width: 40%; /* Reduced to match increased image width */
-}
-
-.text-container h2{
-  font-size: 3rem;
-  font-weight: bold;
-  color: var(--secondary-text-color);
-}
-
-.text-container p{
-  font-size: 1.5rem;
-  color: var(--secondary-text-color);
+  width: 100%;
 }
 
 .main-container {
+  width: 100%;
+}
+
+.aboutus-title {
+  display: flex;
+  justify-content: center;
+  padding-top: 4rem;
+  font-size: 6rem;
+  color: var(--secondary-text-color);
+  -ms-text-kashida-space: 1rem;
+}
+
+.content-container {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  width: 80%;
+  padding-top: 50px;
+  margin: 0 auto;
+}
+
+.image-container {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.about-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.text-container {
+  width: 100%;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Center align items */
+}
+
+.text-container h2 {
+  margin-bottom: 20px;
+}
+
+.text-container p {
+  margin-bottom: 15px;
 }
 
 .btn-aboutus {
-  border-radius: 10px;
-  height: 3rem;
-  width: 15rem;
-  display: flex;
-  font-size: 1.5rem;
-  justify-content: center;
-  align-items:center;
-  margin-top: 2rem;
-  background-color: var(--secondary-color);
-  border-color: var(--secondary-text-color);
-  color: var(--secondary-text-color);
-  transition: all 0.5s;
+  background-color: #fff;
+  /* White background color */
+  color: var(--primary-color);
+  /* Primary color text */
+  border: 2px solid var(--primary-color);
+  /* Add border with primary color */
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  text-decoration: none;
+  margin-top: 20px;
+  /* Margin to separate from text */
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  /* Smooth transition for hover effect */
 }
 
-.btn-aboutus:hover,
-.btn-aboutus:focus {
-  background-color: lighten(var(--primary-color), 10%); /* Lighten the color by 10% when hovered or focused */
-  border-color: lighten(var(--secondary-text-color), 10%);
+.btn-aboutus:hover {
+  background-color: var(--primary-color);
+  /* Change background to red */
+  color: #fff;
+  /* Change text to white */
+  border-color: #fff;
+  /* Change border to white */
 }
 
-.btn-aboutus:active {
-  background-color: lighten(var(--primary-color), 20%); /* Lighten the color by 20% when active */
-  border-color: lighten(var(--secondary-text-color), 20%);
+.employees-section {
+  max-width: 100%;
+  margin-top: 20px;
 }
 
-@media screen and (max-width: 768px) {
+@media (min-width: 768px) {
   .content-container {
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    align-items: flex-start;
   }
 
-  .content-container img {
-    width: 90%; /* Full width on mobile */
-    margin-bottom: 1rem; /* Space between the image and the text */
+  .image-container {
+    width: 60%;
+    margin-right: 20px;
   }
 
   .text-container {
-    width: 100%; /* Full width on mobile */
-    text-align: center; /* Center the text */
+    width: 40%;
+  }
+}
+
+@media (max-width: 767px) {
+  .content-container {
+    width: 100%;
   }
 
-  .text-container h2{
-    font-size: 2.5rem; /* Adjust as needed */
+  .image-container {
+    width: 100%;
+    margin-bottom: 20px;
   }
 
-  .text-container p{
-    font-size: 1.2rem; /* Adjust as needed */
-  }
-
-  .btn-aboutus {
-    width: 100%; /* Full width on mobile */
-    margin-top: 2rem;
-    margin-bottom: -1rem;
+  .text-container {
+    width: 100%;
   }
 }
