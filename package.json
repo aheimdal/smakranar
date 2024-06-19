@@ -13,6 +13,7 @@
     "buffer": "^6.0.3",
     "classnames": "^2.3.2",
     "emailjs-com": "^3.2.0",
+    "firebase": "^10.12.2",
     "install": "^0.13.0",
     "lodash": "^4.17.21",
     "npm": "^9.6.7",
