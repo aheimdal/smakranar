@@ -1,6 +1,8 @@
 #aboutus {
-  background-color: var(--primary-color);
-  width: 100%;
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--primary-color);
 }
 
 .main-container {

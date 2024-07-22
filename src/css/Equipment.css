@@ -1,10 +1,10 @@
-/* This styles the Card components. */
+/* General Styles */
 .equipment-section {
     display: flex;
     flex-direction: column;
     align-items: center;
     background: linear-gradient(var(--primary-color), var(--secondary-color));
-    padding-bottom: 10rem
+    padding-bottom: 10rem;
 }
 
 .equipment-title-container {
@@ -14,18 +14,10 @@
     margin-top: 50px;
     padding-bottom: 20px;
 }
-  
+
 .equipment-title-container h1 {
     padding-top: 4rem;
     font-size: 6rem;
-    color: var(--secondary-text-color);
-    -ms-text-kashida-space: 1rem;
-}
-
-.equipment-title h1 {
-    font-size: 3rem;
-    font-weight: bold;
-    padding-top: 2rem;
     color: var(--secondary-text-color);
 }
 
@@ -37,22 +29,24 @@
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
-    justify-content: space-around; /* Changes alignment */
-    padding: 2rem; /* Padding from the screen edges */
+    justify-content: space-around;
+    padding: 2rem;
 }
 
 .equipment-card {
     display: flex;
+    width: 50%;
+    flex-direction: column;
     background: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     margin: 2rem;
-    overflow: hidden; /* Ensures content doesn't spill out */
+    overflow: hidden;
 }
 
 .equipment-group-title {
-    text-align: center; 
-    color: var(--secondary-text-color); 
-    font-size: 3rem; 
+    text-align: center;
+    color: var(--secondary-text-color);
+    font-size: 3rem;
     margin-top: 2rem;
     margin-bottom: 1rem;
 }
@@ -62,317 +56,190 @@
 }
 
 .equipment-card-img {
-    width: 40%; /* Adjust based on your preference */
-    height: auto; /* Maintain aspect ratio */
-    object-fit: cover; /* Ensures the image covers the area, you can adjust this */
+    width: 100%;
+    height: auto;
+    object-fit: cover;
 }
 
 .equipment-text-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* Distributes space vertically between items */
     padding: 1rem;
-    width: 60%; /* Complementing the image width */
-}
-
-.equipment-text-container .card-title {
-    font-size: 2rem;
 }
 
 .equipment-name-hover {
     font-size: 2.5rem;
     font-weight: bold;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin: 1rem 0;
     text-align: center;
 }
 
 .equipment-text-container .card-text {
-    font-size: 1.2rem; /* Increase the value as needed */
+    font-size: 1.2rem;
     font-weight: 600;
-    padding: 0.5rem;
     margin-bottom: 3rem;
 }
 
 .equipment-button-container {
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Center the buttons horizontally */
-    align-items: center; /* Center the buttons vertically */
-    gap: 20px; /* Creates space between the buttons */
-    padding: 5rem 0; /* Additional padding, adjust as needed */
-    margin-right: 1rem;
+    align-items: center;
+    gap: 20px;
+    padding: 2rem 0;
 }
 
 .equipment-button {
-    flex: 1;
+    width: 80%;
     text-align: center;
     background-color: var(--primary-color);
     color: white;
     border: none;
     padding: 0.5rem 1rem;
-    height: auto;
     cursor: pointer;
-    border: 2px solid transparent; /* Add a transparent border */
-    transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Smooth transition for hover effects */
-
+    border: 2px solid transparent;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 
 .equipment-button:hover {
-    background-color: white; /* Background turns white on hover */
-    color: var(--primary-color); /* Text color changes to primary color */
-    border-color: var(--primary-color); /* Border color changes to primary color */
-}
- 
-.equipment-button:active, .equipment-button:focus {
-    background-color: var(--primary-color) !important;
-    color: var(--secondary-text-color) !important;
-    outline: none !important;
-    box-shadow: none !important;
+    background-color: white;
+    color: var(--primary-color);
+    border-color: var(--primary-color);
 }
 
-/* This styles the Modal components. */
-.equipment-modal {
-    width: 100%;
+/* Equipment Modal Styles */
+.equipment-modal .modal-dialog {
+    max-width: 90vw;
+    width: auto;
+    margin: auto;
 }
 
-.equipment-modal .modal-dialog{
-    max-width: 100%;
-    width: 1200px;
+.equipment-modal .modal-content {
+    background-color: #333;
+    color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
-.equipment-modal-header {
-    background-color: var(--secondary-color);
-    color: var(--secondary-text-color);
+.equipment-modal .modal-header, .equipment-modal .modal-footer {
+    background-color: #444;
+    color: #fff;
 }
 
-.equipment-modal-header .custom-close {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
+.equipment-modal .modal-header .btn-close {
+    background-color: #ff5f5f;
     border: none;
-    background: transparent;
-    font-size: 1rem;
-    color: var(--secondary-text-color);
-    background-color: var(--primary-color);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.equipment-modal-header .custom-close:hover {
-    color: var(--hover-color);
-    cursor: pointer;
+.equipment-modal .modal-header .btn-close:before {
+    content: '×';
+    color: #fff;
+    font-size: 20px;
 }
 
-.equipment-modal-body {
-    background-color: var(--secondary-color);
-}
-
-.equipment-modal-text {
-    margin-bottom: 1em;
+.equipment-modal .modal-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center horizontally */
+    justify-content: flex-start; /* Align items to the top vertically */
+    gap: 20px;
+    padding: 20px;
+    max-height: 80vh;
+    overflow-y: auto;
 }
 
 .equipment-modal-images {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center; /* Center horizontally */
+    justify-content: flex-start; /* Align items to the top vertically */
+    gap: 20px;
+    width: 100%;
+}
+
+.equipment-modal-image {
     max-width: 100%;
-    background-color: #333;
-    overflow-y: auto; /* Enable vertical scrolling */
-    max-height: auto; /* Set a maximum height for the image container */
+    max-height: 70vh; /* Adjust based on your preference */
+    object-fit: contain;
+    border-radius: 5px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto; /* Center the image horizontally */
 }
 
-.equipment-modal-images img {
-    width: 65%; /* Full width of the container */
-    max-width: 65%; /* Maximum image width, adjust as needed */
-    object-fit: contain; /* Ensures the image is fully visible */
-    margin-bottom: 1rem; /* Space between images */
+/* Responsive Styles */
+@media screen and (max-width: 1200px) {
+    .equipment-modal .modal-body {
+        justify-content: flex-start; /* Ensure top alignment */
+    }
+
+    .equipment-modal-images {
+        justify-content: flex-start; /* Ensure top alignment */
+    }
 }
 
-.modal-content{
-    background-color: var(--secondary-color);
-}
-
-
-/* Mobile styles */
-@media screen and (max-width: 768px) { /* Adjusts styles for screens up to 768px wide */
+@media screen and (max-width: 768px) {
     .equipment-title-container h1 {
         padding-top: 1rem;
         font-size: 3rem;
-        color: var(--secondary-text-color);
-        -ms-text-kashida-space: 1rem;
     }
     
     .equipment-group-container {
-        width: calc(100vw);
+        width: 100vw;
     }
 
-    .equipment-group-title {
-        text-align: center; 
-        color: var(--secondary-text-color); 
-        font-size: 3rem; 
-        margin-top: 2rem;
-        margin-bottom: 1rem;
+    .equipment-cards-container {
+        width: 100%;
     }
+
     .equipment-card {
-        margin: 1rem; /* Adjust the margin to ensure it doesn't overflow */
-        width: calc(100% - 2rem); /* Adjust width to prevent overflow */
+        margin: 1rem;
+        width: calc(100% - 2rem);
     }
 
     .equipment-text-container {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between; /* Distributes space vertically between items */
         padding: 0.5rem;
-        width: 100%; /* Complementing the image width */
-    }
-    
-    .equipment-text-container .card-title {
-        font-size: 1rem;
+        width: 100%;
     }
     
     .equipment-name-hover {
         font-size: 1.5rem;
-        font-weight: bold;
-        margin-top: 0.5rem;
-        margin-bottom: 0.1rem;
-        text-align: center;
+        margin: 0.5rem 0;
     }
-    
+
     .equipment-text-container .card-text {
-        font-size: 1rem; /* Increase the value as needed */
-        font-weight: 600;
-        padding: 0.2rem;
-        margin-bottom: 0rem;
-    }
-
-    .equipment-card-img {
-        width: 100%; /* Image takes full width of the card */
-        height: auto; /* Adjusts height to maintain aspect ratio */
-    }
-
-    .vehicle-info {
-        width: 100%; /* Text container takes full width */
-        padding: 10.5rem; /* Adds padding around the text */
+        font-size: 1rem;
+        margin-bottom: 0;
     }
 
     .equipment-button-container {
-        display: flex;
-        flex-direction: column; /* Stacks the buttons vertically */
-        align-items: center; /* Aligns buttons to the center */
-        gap: 10px; /* Adds space between the two buttons */
+        gap: 10px;
     }
 
     .equipment-button {
-        width: 80%; /* Adjusts button width to be 80% of the card's width */
-        margin: 0; /* Removes any margin */
+        width: 80%;
+        margin: 0;
     }
 
-    /* Modal in the mobile*/
     .equipment-modal .modal-dialog {
-        margin: 0; /* Remove margin to allow the modal to use full width */
-        min-height: 100vh; /* Make modal take full height of the screen */
+        margin: 0;
+        min-height: 100vh;
         display: flex;
         flex-direction: column;
         justify-content: center;
     }
 
     .equipment-modal .modal-content {
-        height: 100vh; /* Ensure content takes full height */
-        overflow-y: auto; /* Allow scrolling if content overflows */
-    }
-
-    .equipment-modal-body {
-        background-color: var(--secondary-color);
-    }
-
-    .equipment-modal-header,
-    .equipment-modal-footer {
-        padding: 20px; /* Adjust padding for smaller screens */
+        height: 100vh;
+        overflow-y: auto;
     }
 
     .equipment-modal-images img {
-        max-height: 50vh; /* Limit image height to 50% of viewport height */
-        width: auto; /* Adjust width automatically based on height */
-        max-width: 80%; /* Ensure image does not exceed its container */
-    }
-}
-
-/* Modal styles for both ProjectGallery and Equipment */
-
-.custom-modal .modal-dialog {
-    max-width: 80vw !important; /* Ensure the modal covers 80% of the viewport width */
-    width: 80vw !important;
-    margin: auto;
-}
-
-.custom-modal .modal-content {
-    background-color: #333; /* Change background color */
-    color: #fff; /* Change text color */
-    border-radius: 10px; /* Rounded corners */
-    overflow: hidden; /* Hide overflowing content */
-}
-
-.custom-modal .modal-header, .custom-modal .modal-footer {
-    background-color: #444; /* Darker background for header and footer */
-    color: #fff; /* White text color */
-}
-
-.custom-modal .modal-header .modal-title, .custom-modal .modal-footer .btn {
-    color: #fff; /* White text color */
-}
-
-.custom-modal .modal-header .btn-close {
-    background-color: #ff5f5f; /* Custom close button background */
-    border: none; /* Remove border */
-    border-radius: 50%; /* Rounded close button */
-    width: 30px; /* Custom size */
-    height: 30px; /* Custom size */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.custom-modal .modal-header .btn-close:before {
-    content: '×'; /* Custom close button content */
-    color: #fff; /* White close button text */
-    font-size: 20px; /* Custom font size */
-}
-
-.custom-modal .modal-body {
-    display: flex;
-    flex-direction: column; /* Use column for equipment modal */
-    gap: 20px;
-    padding: 20px;
-    max-height: 80vh; /* Ensure the modal doesn't overflow the viewport height */
-}
-
-.equipment-modal-images {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-}
-
-.equipment-modal-image {
-    max-width: 80%; /* Image takes up 80% of the modal width */
-    border-radius: 5px;
-}
-
-@media (max-width: 1200px) {
-    .custom-modal .modal-body {
-        flex-direction: column;
-    }
-
-    .equipment-modal-images {
-        flex-direction: column;
-    }
-}
-
-@media (max-width: 768px) {
-    .custom-modal .modal-body {
-        flex-direction: column;
-    }
-
-    .equipment-modal-images {
-        flex-direction: column;
+        max-height: 50vh;
+        width: auto;
+        max-width: 80%;
     }
 }

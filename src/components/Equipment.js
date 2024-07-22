@@ -84,7 +84,7 @@ const Equipment = () => {
                     </div>
                 ))}
                 {selectedEquipment && (
-                    <Modal show={showModal} onHide={handleCloseModal} dialogClassName="custom-modal">
+                    <Modal show={showModal} onHide={handleCloseModal} dialogClassName="equipment-modal">
                         <Modal.Header className="equipment-modal-header" closeButton>
                             <Modal.Title>{selectedEquipment.name}</Modal.Title>
                         </Modal.Header>
@@ -101,10 +101,11 @@ const Equipment = () => {
                             </div>
                         </Modal.Body>
                         <Modal.Footer>
-                        <Button variant="primary" onClick={handleCloseModal}>Loka</Button>
+                            <Button variant="primary" onClick={handleCloseModal}>Loka</Button>
                         </Modal.Footer>
                     </Modal>
                 )}
+
             </div>
         </div>
     );
