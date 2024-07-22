@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Card, Modal, Button } from 'react-bootstrap';
+import { useTranslation } from 'react-i18next';
 import '../css/ProjectGallery.css';
 
 const ProjectGallery = () => {
+    const { t } = useTranslation();
     const [projects, setProjects] = useState([]);
 
     useEffect(() => {
@@ -32,7 +34,7 @@ const ProjectGallery = () => {
     return (
         <div id="projectGallery">
             <div className="project-title-container">
-                <h1 className="project-title">Verkefni</h1>
+                <h1 className="project-title">{t('PROJECTS_TITLE')}</h1>
             </div>
             <div className="project-gallery-grid">
                 {projects.map((project) => (
@@ -50,14 +52,14 @@ const ProjectGallery = () => {
                 <Modal show={showModal} onHide={handleCloseModal} dialogClassName="custom-modal">
                     <Modal.Header>
                         <Modal.Title>{selectedProject.name}</Modal.Title>
-                        <Button type="button" className="custom-close" onClick={handleCloseModal}aria-label="Close">X</Button>
+                        <Button type="button" className="custom-close" onClick={handleCloseModal} aria-label="Close">X</Button>
                     </Modal.Header>
                     <Modal.Body>
                         <div className="modal-text-container">
                             <div className="modal-text">
-                                <h2>Staðsetning</h2>
+                                <h2>{t('LOCATION')}</h2>
                                 <p>{selectedProject.location}</p>
-                                <h2>Lýsing</h2>
+                                <h2>{t('DESCRIPTION')}</h2>
                                 <p>{selectedProject.description}</p>
                             </div>
                         </div>
@@ -68,7 +70,7 @@ const ProjectGallery = () => {
                         </div>
                     </Modal.Body>
                     <Modal.Footer>
-                        <Button variant="primary" onClick={handleCloseModal}>Loka</Button>
+                        <Button variant="primary" onClick={handleCloseModal}>{t('CLOSE')}</Button>
                     </Modal.Footer>
                 </Modal>
             )}

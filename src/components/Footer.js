@@ -1,31 +1,33 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaEnvelope, FaFacebookF, FaGavel, FaHome, FaPhone, FaShieldAlt } from 'react-icons/fa';
+import { useTranslation } from 'react-i18next';
 import '../css/Footer.css';
 
 const Footer = () => {
+  const { t } = useTranslation();
 
   return (
     <>
       <div className='info-container'>
         <div className='mobile-view-container'>
           <div className='web-info'>
-            <h1>VEFURINN</h1>
-            <Link className="web-info-link" to="/aboutus">Um Okkur</Link>
-            <Link className="web-info-link" to="/equipment">Vinnutæki</Link>
-            <Link className="web-info-link" to="/projects">Verkefni</Link>
-            <Link className="web-info-link" to="/contactus">Hafa Samband</Link>
+            <h1>{t('WEB')}</h1>
+            <Link className="web-info-link" to="/aboutus">{t('ABOUT_US')}</Link>
+            <Link className="web-info-link" to="/equipment">{t('EQUIPMENT')}</Link>
+            <Link className="web-info-link" to="/projects">{t('PROJECTS')}</Link>
+            <Link className="web-info-link" to="/contactus">{t('CONTACT_US')}</Link>
           </div>
           <div className='description-container'>
             <h1>SMÁKRANAR</h1>
-            <p className='desc-text'>Smákranar hafa tekið þátt í nokkrum af stærstu byggingaframkvæmdum á Íslandi frá því þeir voru stofnaðir árið 2003</p>
+            <p className='desc-text'>{t('COMPANY_DESCRIPTION')}</p>
           </div>
         </div>
         <div className='address-container'>
-          <h1>HAFA SAMBAND</h1>
+          <h1>{t('CONTACT')}</h1>
           <div className='address-text'>
             <FaHome />
-            <a href="https://www.google.com/maps/search/?api=1&query=Stórihjalli+15" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}> Stórihjalli 15, 200 Kópavogur</a>
+            <a href="https://www.google.com/maps/search/?api=1&query=Stórihjalli+15" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}> {t('ADDRESS')}</a>
           </div>
 
           <div className='address-text'>
@@ -46,10 +48,10 @@ const Footer = () => {
       </div>
       <footer className="footer">
         <div className="footer-content">
-          <p>© 2023 Smákranar</p>
+          <p>{t('COPYRIGHT')}</p>
           <div className='footer-navigation'>
-            <Link to="/terms"><FaGavel />  Terms of Service</Link>
-            <Link to="/privacy"><FaShieldAlt />  Privacy Policy</Link>
+            <Link to="/terms"><FaGavel /> {t('TERMS_OF_SERVICE')}</Link>
+            <Link to="/privacy"><FaShieldAlt /> {t('PRIVACY_POLICY')}</Link>
           </div>
         </div>
       </footer>

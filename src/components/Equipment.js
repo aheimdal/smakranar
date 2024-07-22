@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Card, Modal, Button } from 'react-bootstrap';
+import { useTranslation } from 'react-i18next';
 import '../css/Equipment.css';
 
 const Equipment = () => {
+    const { t, i18n } = useTranslation();
     const [equipment, setEquipment] = useState([]);
     const [showModal, setShowModal] = useState(false);
     const [selectedEquipment, setSelectedEquipment] = useState(null);
@@ -28,8 +30,16 @@ const Equipment = () => {
         setShowModal(false);
     };
 
+    const getDescription = (item) => {
+        return i18n.language === 'en' ? item.description_en : item.description_is;
+    };
+
+    const getMake = (item) => {
+        return i18n.language === 'en' ? item.make_en : item.make_is;
+    };
+
     const groupedEquipment = equipment.reduce((acc, item) => {
-        const { make } = item;
+        const make = getMake(item);
         if (!acc[make]) acc[make] = [];
         acc[make].push(item);
         return acc;
@@ -39,7 +49,7 @@ const Equipment = () => {
         <div id="equipment">
             <div className="equipment-section">
                 <div className="equipment-title-container">
-                    <h1 className="equipment-title">TÆKI OG BÚNAÐUR</h1>
+                    <h1 className="equipment-title">{t('EQUIPMENT_TITLE')}</h1>
                 </div>
                 {Object.entries(groupedEquipment).map(([make, items]) => (
                     <div key={make} className="equipment-group-container">
@@ -53,8 +63,8 @@ const Equipment = () => {
                                         className="equipment-card-img"
                                     />
                                     <div className="equipment-text-container">
-                                        <div className="equipment-name-hover">{item.name} ({item.year})</div>
-                                        <Card.Text>{item.description}</Card.Text>
+                                        <div className="equipment-name-hover">{item.name}</div>
+                                        <Card.Text>{getDescription(item)}</Card.Text>
                                     </div>
                                     <div className="equipment-button-container">
                                         <Button
@@ -65,7 +75,7 @@ const Equipment = () => {
                                                 handleOpenModal(item);
                                             }}
                                         >
-                                            Skoða myndir
+                                            {t('VIEW_IMAGES')}
                                         </Button>
                                         <Button
                                             variant="primary"
@@ -75,7 +85,7 @@ const Equipment = () => {
                                                 window.open(item.pdf, '_blank');
                                             }}
                                         >
-                                            Skoða yfirlit Tækis
+                                            {t('VIEW_OVERVIEW')}
                                         </Button>
                                     </div>
                                 </Card>
@@ -101,11 +111,10 @@ const Equipment = () => {
                             </div>
                         </Modal.Body>
                         <Modal.Footer>
-                            <Button variant="primary" onClick={handleCloseModal}>Loka</Button>
+                            <Button variant="primary" onClick={handleCloseModal}>{t('CLOSE')}</Button>
                         </Modal.Footer>
                     </Modal>
                 )}
-
             </div>
         </div>
     );

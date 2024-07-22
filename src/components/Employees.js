@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import AOS from 'aos';
+import { useTranslation } from 'react-i18next';
 import 'aos/dist/aos.css';
-import '../css/Employees.css'
+import '../css/Employees.css';
 
 function Employees() {
+    const { t } = useTranslation();
     const [employees, setEmployees] = useState([]);
 
     useEffect(() => {
@@ -16,22 +18,21 @@ function Employees() {
         AOS.init({ duration: 2000 });
     }, []);
 
-    window.onload = function() {
-        var jobTitles = document.getElementsByClassName('job-title');
-        
-        for (var i = 0; i < jobTitles.length; i++) {
-          var width = jobTitles[i].offsetWidth;
-          var redLine = jobTitles[i].getElementsByClassName('red-line')[0];
-          
-          redLine.style.width = width + 'px';
-        }
-      };
-      
+    useEffect(() => {
+        window.addEventListener('load', () => {
+            const jobTitles = document.getElementsByClassName('job-title');
+            for (let i = 0; i < jobTitles.length; i++) {
+                const width = jobTitles[i].offsetWidth;
+                const redLine = jobTitles[i].getElementsByClassName('red-line')[0];
+                redLine.style.width = width + 'px';
+            }
+        });
+    }, []);
 
     return (
         <div className="employees">
             <div className='employee-title-container text-center'>
-                <h1>TEYMIÐ OKKAR</h1>
+                <h1>{t('OUR_TEAM')}</h1>
             </div>
             <div className='employee-cards-container'>
                 <div className='employee-container-fluid'>
@@ -43,8 +44,8 @@ function Employees() {
                                     <div className="employee-card-body">
                                         <div className='employee-job-title'>
                                             {employee.jobTitle}
-                                        <div className='employee-red-line'></div>
-                                            </div>
+                                            <div className='employee-red-line'></div>
+                                        </div>
                                         <h4 className='employee-name'>{employee.name}</h4>
                                     </div>
                                 </div>
@@ -55,7 +56,6 @@ function Employees() {
             </div>
         </div>
     );
-    
 }
 
 export default Employees;

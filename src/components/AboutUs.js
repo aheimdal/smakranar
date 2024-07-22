@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import '../css/AboutUs.css';
 import Employees from './Employees';
 import yourImage from '../assets/images/splash.jpg'; // Replace with your actual image path
 
 const AboutUs = () => {
+  const { t } = useTranslation();
   const [employees, setEmployees] = useState([]);
 
   useEffect(() => {
@@ -15,18 +17,18 @@ const AboutUs = () => {
   return (
     <div id="aboutus">
       <div className="main-container">
-        <h1 className="aboutus-title">Um Okkur</h1>
+        <h1 className="aboutus-title">{t('ABOUT_US_TITLE')}</h1>
         <div className="content-container">
           <div className="image-container">
             <img src={yourImage} alt="Company" className="about-image" />
           </div>
           <div className="text-container">
-            <h2>SMÁKRANAR</h2>
-            <p>Fyrirækið Smákranar ehf. var stofnað 2003 þegar eigendur þess, Erlingur og Hildur sáu nýja tegund af vinnuvélum – svonefnda smákrana. Stærð þeirra gerir það að verkum að hægt er að fara með þá á afvikna staði þar sem önnur tæki komast ekki. t.d. inni í byggingum, í görðum, kjallarabyggingum, uppi á þökum háhýsa o.fl. Afráðið var að fá til landsins fyrsta UNIC smákranann en fyrst um sinn gekk hægt að veita honum brautargengi. En verktakar fóru að veita þessu nýja tæki athygli, sérstaklega fyrir hversu vel gekk að leysa erfið hífingarverk innandyra.</p>
-            <p>Árið 2007 jukust umsvif Smárkrana þegar tveir smákranar til viðbótar bættust við í flotann. 2011 keypti fyrirtækið svo P&H krana, 25t að lyftigetu sem reynist mjög vel á stærri verkstöðum. 2013 fengu Smákranar söluumboð fyrir Ítölsku JMG rafmagnssmákranana en þeir eru á hjólum líkt og rafmagnsllyftarar nema þeir hafa lyftitölvu (SLI) sem tilgreinir nákvæmlega hvað hátt og langt hægt er að hífa byrði. Tveir kranar 2,5t og 6t að lyftigetu voru fengnir til landsins og hafa reynst frábærlega.</p>
-            <p>2015 kom svo stærsti kraninn okkar til landsins en það er Liebherr LTM 1045-3.1, 45t bílkrani sem þrátt fyrir stærð sína hentar mjög vel fyrir viðskiptavini Smákrana. 2016 bættust svo tveir UNIC smákranar í flotann, UNIC 295 og UNIC 706 en hann er með 20m bómu og 3 metra jibb framlengingu.</p>
-            <p>Október 2017 fengum við okkur svo glænýjan bílkrana af gerð Liebherr LTC 1045-3.1. Hann svipaður og hinn bílkraninn okkar nema með 36 metra langri bómu sem hægt er að lengja með jibbi upp í 50 metra.</p>
-            <button className="btn-aboutus" onClick={() => window.location.href='/contactus'}>Hafa Samband</button>
+            <h2>{t('COMPANY_NAME')}</h2>
+            <p>{t('ABOUT_US_PARAGRAPH_1')}</p>
+            <p>{t('ABOUT_US_PARAGRAPH_2')}</p>
+            <p>{t('ABOUT_US_PARAGRAPH_3')}</p>
+            <p>{t('ABOUT_US_PARAGRAPH_4')}</p>
+            <button className="btn-aboutus" onClick={() => window.location.href='/contactus'}>{t('CONTACT_US_BUTTON')}</button>
           </div>
         </div>
         <div className="employees-section">
