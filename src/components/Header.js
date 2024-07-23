@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGlobe, faLanguage } from '@fortawesome/free-solid-svg-icons';
+import { faGlobe } from '@fortawesome/free-solid-svg-icons';
 import logo from '../assets/images/smakranar.png';
 import '../css/Header.css';
 
@@ -41,19 +41,17 @@ const Header = () => {
           <img src={logo} alt="Company Logo" className="d-inline-block align-top" />
         </Navbar.Brand>
         <Navbar.Toggle onClick={handleToggle} aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav" className={isOpen ? 'show' : ''}>
+        <Navbar.Collapse in={isOpen} id="basic-navbar-nav">
           <Nav onClick={handleClose} className="ml-auto pr-3">
             <Nav.Link href="/aboutus">{t('ABOUT_US')}</Nav.Link>
             <Nav.Link href="/equipment">{t('EQUIPMENT')}</Nav.Link>
             <Nav.Link href="/projects">{t('PROJECTS')}</Nav.Link>
             <Nav.Link href="/contactus">{t('CONTACT_US')}</Nav.Link>
+            <Nav.Link onClick={toggleLanguage} className="language-link">
+              <FontAwesomeIcon icon={faGlobe} className="language-icon" />
+              <span className="language-text">{language === 'en' ? 'IS' : 'EN'}</span>
+            </Nav.Link>
           </Nav>
-          <FontAwesomeIcon 
-            icon={faGlobe} 
-            onClick={toggleLanguage} 
-            className="ml-2 language-icon" 
-            title={`Switch to ${language === 'en' ? 'Icelandic' : 'English'}`}
-          />
         </Navbar.Collapse>
       </Navbar>
     </>

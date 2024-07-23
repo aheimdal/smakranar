@@ -80,9 +80,10 @@
 /* Header.css */
 .language-icon {
   cursor: pointer;
-  font-size: 1.5rem;
-  color: var(--primary-color);
+  font-size: 1.65rem; /* Increased size by 10% */
+  color: var(--primary-color); /* Darkened the color */
   transition: color 0.3s, filter 0.3s;
+  margin-right: 5px;
 }
 
 .language-icon:hover {
@@ -93,7 +94,19 @@
   color: var(--primary-color); /* Original color after being pressed */
 }
 
+.language-link {
+  display: flex;
+  align-items: center;
+  padding: 15px 0;
+  cursor: pointer;
+}
 
+.language-text {
+  font-size: 1.1rem;
+  font-family: 'Rajdhani', sans-serif;
+  color: var(--text-color);
+  transition: color 0.3s ease-in-out;
+}
 
 /* Responsive Design */
 
@@ -103,27 +116,31 @@
     display: block; /* Keep the burger button visible */
     margin-right: 30px;
   }
-.navbar-brand {
-  display: flex;
-  position: relative;
-  z-index: 1;
-}
 
-.navbar-brand img {
-  height: 40px;
-  width: 220px;
-  margin: 5px;
-  margin-left: 2rem;
-  transition: height 0.5s ease, width 0.5s ease;
-}
+  .navbar-brand {
+    display: flex;
+    position: relative;
+    z-index: 1;
+  }
+
+  .navbar-brand img {
+    height: 40px;
+    width: 220px;
+    margin: 5px;
+    margin-left: 2rem;
+    transition: height 0.5s ease, width 0.5s ease;
+  }
+
   .navbar-collapse {
     display: flex; /* Keep it flex, but hidden initially using transform */
     background-color: var(--background-color);
     flex-direction: column;
+    align-items: center; /* Center items horizontally */
     position: fixed;
     top: 80px;
     left: 0;
     width: 100%;
+    height: calc(100vh - 80px); /* Full height minus the navbar height */
     transition: transform 0.3s ease-in-out;
     transform: translateY(-100%); /* Start hidden above the view */
     overflow: hidden; /* Ensures content doesn't overflow when menu is hidden */
@@ -152,7 +169,7 @@
   }
 }
 
-
+/* This media query is for screen sizes below 768px */
 @media screen and (max-width: 768px) {
   .navbar {
     padding: 10px;
@@ -166,10 +183,12 @@
     display: flex; /* Keep it flex, but hidden initially using transform */
     background-color: var(--background-color);
     flex-direction: column;
+    align-items: center; /* Center items horizontally */
     position: fixed;
-    top: 80px;
+    top: 60px; /* Adjusted from 80px to account for smaller screen */
     left: 0;
     width: 100%;
+    height: calc(100vh - 60px); /* Full height minus the navbar height */
     transition: transform 0.3s ease-in-out;
     transform: translateY(-100%); /* Start hidden above the view */
     overflow: hidden; /* Ensures content doesn't overflow when menu is hidden */
@@ -187,6 +206,18 @@
   }
 
   .navbar-brand img {
+    height: 30px; /* Reduce brand image height */
+    width: 180px; /* Reduce brand image width */
     margin-left: 1rem;
+    transition: height 0.5s ease, width 0.5s ease;
+  }
+
+  .language-link {
+    padding: 10px; /* Added padding for the language icon */
+    font-size: 1.1rem; /* Ensure the font size matches other links */
+  }
+
+  .language-icon {
+    font-size: 1.65rem; /* Ensure the icon size is consistent */
   }
 }
