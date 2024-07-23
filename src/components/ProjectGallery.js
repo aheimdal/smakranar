@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import '../css/ProjectGallery.css';
 
 const ProjectGallery = () => {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
     const [projects, setProjects] = useState([]);
 
     useEffect(() => {
@@ -31,6 +31,14 @@ const ProjectGallery = () => {
         setShowModal(false);
     };
 
+    const getName = (project) => {
+        return i18n.language === 'en' ? project.name_en : project.name_is;
+    };
+
+    const getDescription = (project) => {
+        return i18n.language === 'en' ? project.description_en : project.description_is;
+    };
+
     return (
         <div id="projectGallery">
             <div className="project-title-container">
@@ -42,7 +50,7 @@ const ProjectGallery = () => {
                         <div className="card-image-container">
                             <Card.Img variant="top" src={project.images[0]} className="project-card-img" />
                             <Card.Body className="project-card-body">
-                                <Card.Title className="project-card-title">{project.name}</Card.Title>
+                                <Card.Title className="project-card-title">{getName(project)}</Card.Title>
                             </Card.Body>
                         </div>
                     </Card>
@@ -51,7 +59,7 @@ const ProjectGallery = () => {
             {selectedProject && (
                 <Modal show={showModal} onHide={handleCloseModal} dialogClassName="custom-modal">
                     <Modal.Header>
-                        <Modal.Title>{selectedProject.name}</Modal.Title>
+                        <Modal.Title>{getName(selectedProject)}</Modal.Title>
                         <Button type="button" className="custom-close" onClick={handleCloseModal} aria-label="Close">X</Button>
                     </Modal.Header>
                     <Modal.Body>
@@ -60,12 +68,12 @@ const ProjectGallery = () => {
                                 <h2>{t('LOCATION')}</h2>
                                 <p>{selectedProject.location}</p>
                                 <h2>{t('DESCRIPTION')}</h2>
-                                <p>{selectedProject.description}</p>
+                                <p>{getDescription(selectedProject)}</p>
                             </div>
                         </div>
                         <div className="modal-images-container">
                             {selectedProject.images.map((image, index) => (
-                                <img key={index} src={image} alt={`project ${selectedProject.name} image ${index + 1}`} className="modal-image"/>
+                                <img key={index} src={image} alt={`project ${getName(selectedProject)} image ${index + 1}`} className="modal-image"/>
                             ))}
                         </div>
                     </Modal.Body>
