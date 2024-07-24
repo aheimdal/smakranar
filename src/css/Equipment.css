@@ -21,6 +21,34 @@
     color: var(--secondary-text-color);
 }
 
+.make-buttons-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px; /* Increase space between buttons */
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.make-button, .equipment-button, .back-to-top {
+    background-color: white;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, transform 0.1s;
+}
+
+.make-button:hover, .equipment-button:hover, .back-to-top:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.make-button:active, .equipment-button:active, .back-to-top:active {
+    transform: scale(0.95);
+    background-color: var(--primary-color-dark); /* Darker shade for pressed state */
+    transition: transform 0.1s, background-color 0.1s;
+}
+
 .equipment-group-container {
     width: calc(90vw - 4rem);
 }
@@ -84,24 +112,6 @@
     align-items: center;
     gap: 20px;
     padding: 2rem 0;
-}
-
-.equipment-button {
-    width: 80%;
-    text-align: center;
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    border: 2px solid transparent;
-    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
-}
-
-.equipment-button:hover {
-    background-color: white;
-    color: var(--primary-color);
-    border-color: var(--primary-color);
 }
 
 /* Equipment Modal Styles */
@@ -170,6 +180,37 @@
     margin-right: auto; /* Center the image horizontally */
 }
 
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: opacity 0.3s, transform 0.3s;
+    opacity: 0;
+    transform: translateY(100px);
+    z-index: 1000;
+}
+
+.back-to-top.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
 /* Responsive Styles */
 @media screen and (max-width: 1200px) {
     .equipment-modal .modal-body {
@@ -186,9 +227,14 @@
         padding-top: 1rem;
         font-size: 3rem;
     }
-    
+
     .equipment-group-container {
         width: 100vw;
+    }
+
+    .make-button {
+        width: calc(50% - 10px); /* Make buttons take up 50% of the width with some spacing */
+        margin: 5px; /* Add margin for spacing */
     }
 
     .equipment-cards-container {
@@ -204,7 +250,7 @@
         padding: 0.5rem;
         width: 100%;
     }
-    
+
     .equipment-name-hover {
         font-size: 1.5rem;
         margin: 0.5rem 0;
