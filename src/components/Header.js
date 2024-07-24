@@ -18,7 +18,8 @@ const Header = () => {
     setIsScrolled(window.scrollY > 20);
   };
 
-  const toggleLanguage = () => {
+  const toggleLanguage = (e) => {
+    e.stopPropagation(); // Prevent the click from bubbling up to the Nav component
     const newLanguage = language === 'en' ? 'is' : 'en';
     i18n.changeLanguage(newLanguage);
     setLanguage(newLanguage);
@@ -42,11 +43,11 @@ const Header = () => {
         </Navbar.Brand>
         <Navbar.Toggle onClick={handleToggle} aria-controls="basic-navbar-nav" />
         <Navbar.Collapse in={isOpen} id="basic-navbar-nav">
-          <Nav onClick={handleClose} className="ml-auto pr-3">
-            <Nav.Link href="/aboutus">{t('ABOUT_US')}</Nav.Link>
-            <Nav.Link href="/equipment">{t('EQUIPMENT')}</Nav.Link>
-            <Nav.Link href="/projects">{t('PROJECTS')}</Nav.Link>
-            <Nav.Link href="/contactus">{t('CONTACT_US')}</Nav.Link>
+          <Nav className="ml-auto pr-3">
+            <Nav.Link href="/aboutus" onClick={handleClose}>{t('ABOUT_US')}</Nav.Link>
+            <Nav.Link href="/equipment" onClick={handleClose}>{t('EQUIPMENT')}</Nav.Link>
+            <Nav.Link href="/projects" onClick={handleClose}>{t('PROJECTS')}</Nav.Link>
+            <Nav.Link href="/contactus" onClick={handleClose}>{t('CONTACT_US')}</Nav.Link>
             <Nav.Link onClick={toggleLanguage} className="language-link">
               <FontAwesomeIcon icon={faGlobe} className="language-icon" />
               <span className="language-text">{language === 'en' ? 'IS' : 'EN'}</span>

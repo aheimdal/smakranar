@@ -1,12 +1,13 @@
 #aboutus {
   display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: var(--primary-color);
+  flex-direction: column;
+  align-items: center;
+  background: var(--primary-color);
 }
 
 .main-container {
   width: 100%;
+  overflow: hidden; /* Prevents overflow */
 }
 
 .aboutus-title {
@@ -18,18 +19,37 @@
   -ms-text-kashida-space: 1rem;
 }
 
+/* Synchronize title size with equipment title */
+@media (max-width: 1200px) {
+  .aboutus-title {
+    padding-top: 4rem;
+    font-size: 6rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .aboutus-title {
+    padding-top: 1rem;
+    font-size: 3rem;
+  }
+}
+
 .content-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 80%;
+  width: 100%;
   padding-top: 50px;
   margin: 0 auto;
+  padding-left: 5px; /* Add padding on the left */
+  padding-right: 5px; /* Add padding on the right */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
 .image-container {
   width: 100%;
   margin-bottom: 20px;
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
 .about-image {
@@ -45,11 +65,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* Center align items */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
 .text-container h2 {
   margin-bottom: 20px;
+  font-weight: bold; /* Increase font weight for company name */
 }
 
 .text-container p {
@@ -58,28 +79,20 @@
 
 .btn-aboutus {
   background-color: #fff;
-  /* White background color */
   color: var(--primary-color);
-  /* Primary color text */
   border: 2px solid var(--primary-color);
-  /* Add border with primary color */
   padding: 10px 20px;
   cursor: pointer;
   border-radius: 5px;
   text-decoration: none;
   margin-top: 20px;
-  /* Margin to separate from text */
   transition: background-color 0.3s, color 0.3s, border-color 0.3s;
-  /* Smooth transition for hover effect */
 }
 
 .btn-aboutus:hover {
   background-color: var(--primary-color);
-  /* Change background to red */
   color: #fff;
-  /* Change text to white */
   border-color: #fff;
-  /* Change border to white */
 }
 
 .employees-section {
@@ -106,14 +119,21 @@
 @media (max-width: 767px) {
   .content-container {
     width: 100%;
+    padding-left: 5px; /* Add padding on the left */
+    padding-right: 5px; /* Add padding on the right */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
   }
 
   .image-container {
     width: 100%;
     margin-bottom: 20px;
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
   }
 
   .text-container {
     width: 100%;
+    margin-left: 10px; /* Add margin on the left */
+    margin-right: 10px; /* Add margin on the right */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
   }
 }

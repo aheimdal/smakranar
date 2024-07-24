@@ -20,6 +20,21 @@
     color: var(--secondary-text-color);
 }
 
+/* Synchronize title size with about us and equipment titles */
+@media (max-width: 1200px) {
+    .project-title {
+        padding-top: 4rem;
+        font-size: 6rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .project-title {
+        padding-top: 1rem;
+        font-size: 3rem;
+    }
+}
+
 .project-gallery-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -134,8 +149,6 @@
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    max-height: 80vh; /* Ensure the images container doesn't overflow the viewport height */
-    overflow-y: auto; /* Enable scrolling for the images container */
 }
 
 .modal-image {
@@ -162,5 +175,24 @@
 @media (max-width: 768px) {
     .project-gallery-grid {
         grid-template-columns: 1fr;
+    }
+
+    .project-card {
+        width: 70%; /* Set the project card width to 70% of the screen */
+        margin: 0 auto; /* Center the project cards */
+    }
+
+    .custom-modal .modal-body {
+        flex-direction: column;
+        overflow-y: auto; /* Enable scrolling for the modal body */
+    }
+
+    .modal-text-container, .modal-images-container {
+        flex: 1;
+        max-width: 100%;
+    }
+
+    .modal-images-container {
+        overflow-y: unset; /* Remove scrolling from the images container */
     }
 }

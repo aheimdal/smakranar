@@ -80,9 +80,9 @@
 /* Header.css */
 .language-icon {
   cursor: pointer;
-  font-size: 1.65rem; /* Increased size by 10% */
+  font-size: 1.65rem; /* Base size */
   color: var(--primary-color); /* Darkened the color */
-  transition: color 0.3s, filter 0.3s;
+  transition: color 0.3s, filter 0.3s, transform 0.3s; /* Added transform transition */
   margin-right: 5px;
 }
 
@@ -99,6 +99,10 @@
   align-items: center;
   padding: 15px 0;
   cursor: pointer;
+}
+
+.language-link:hover{
+  transform: scale(1.2); /* Increase size on hover */
 }
 
 .language-text {
@@ -184,6 +188,7 @@
     background-color: var(--background-color);
     flex-direction: column;
     align-items: center; /* Center items horizontally */
+    justify-content: flex-start; /* Align items to the top */
     position: fixed;
     top: 60px; /* Adjusted from 80px to account for smaller screen */
     left: 0;
@@ -192,6 +197,7 @@
     transition: transform 0.3s ease-in-out;
     transform: translateY(-100%); /* Start hidden above the view */
     overflow: hidden; /* Ensures content doesn't overflow when menu is hidden */
+    padding-top: 20px; /* Add some padding to the top */
   }
   
   .navbar-collapse.show {
@@ -202,7 +208,10 @@
     display: flex;
     font-size: 1rem;
     justify-content: center;
+    align-items: center; /* Center items vertically */
+    text-align: center; /* Center text horizontally */
     padding: 15px 0;
+    width: 100%; /* Ensure the links span the full width */
   }
 
   .navbar-brand img {
@@ -212,12 +221,28 @@
     transition: height 0.5s ease, width 0.5s ease;
   }
 
+  .navbar.scrolled .navbar-brand img {
+    height: 30px; /* Ensure brand image height remains the same when scrolled */
+    width: 180px; /* Ensure brand image width remains the same when scrolled */
+  }
+
   .language-link {
+    display: flex; /* Ensure the links span the full width */
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
     padding: 10px; /* Added padding for the language icon */
     font-size: 1.1rem; /* Ensure the font size matches other links */
+    width: 100%; /* Ensure the links span the full width */
+    text-align: center; /* Center text horizontally */
   }
 
   .language-icon {
     font-size: 1.65rem; /* Ensure the icon size is consistent */
+    transition: color 0.3s, filter 0.3s, transform 0.3s; /* Added transform transition */
+  }
+
+  .language-icon:hover {
+    filter: brightness(0.8); /* Slightly darker on hover */
+    transform: scale(1.2); /* Increase size on hover */
   }
 }

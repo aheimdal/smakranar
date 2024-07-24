@@ -46,11 +46,11 @@
   /* Media queries for mobile device */
 @media only screen and (max-width: 768px) {
     .hero-title {
-      font-size: 3rem; /* Reduce the font size for small screens */
+      font-size: 2.8rem; /* Reduce the font size for small screens */
     }
   
     .hero-subtitle {
-      font-size: 2rem; /* Reduce the font size for small screens */
+      font-size: 1.8rem; /* Reduce the font size for small screens */
     }
   
     .hero-content a {
