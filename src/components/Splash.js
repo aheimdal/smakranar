@@ -1,8 +1,8 @@
 import React from 'react';
-import mainImage from '../assets/images/main.jpg';
 import { Button } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import '../css/Splash.css';
+import Slideshow from './Slideshow';
 import Slogan from './Slogan';
 
 const Splash = () => {
@@ -11,7 +11,7 @@ const Splash = () => {
   return (
     <>
       <div className="splash">
-        <div className="hero-image" style={{ backgroundImage: `url(${mainImage})` }}></div>
+        <Slideshow />
         <div className="hero-content">
           <h1 className="hero-title">{t('HERO_TITLE')}</h1>
           <p className="hero-subtitle">{t('HERO_SUBTITLE')}</p>

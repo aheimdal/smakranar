@@ -1,98 +1,121 @@
 /* CSS file: Splash.css */
 
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
 .splash {
-    position: relative; /* This sets the base for absolutely positioned child elements */
-    width: 100%; /* Make the splash section span the full width of the page */
-    height: 100vh; /* Make the splash section span the full height of the viewport */
-    overflow: hidden; /* Prevents spillover of child elements */
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
     background-color: black;
-  }
-  
-  .hero-image {
-    position: absolute; /* Allows us to layer elements */
+}
+
+.slideshow {
+    position: absolute;
     top: 0;
     left: 0;
-    height: 100%;
     width: 100%;
-    background-size: cover; /* Ensures the background image covers the full section */
-    background-position: center; /* Centers the background image */
-    opacity: 40%;
-  }
-  
-  .hero-content {
-    position: relative; /* This ensures the content is layered above the image */
-    z-index: 2; /* Places the content above the hero image */
-    text-align: center; /* Centers the text horizontally */
-    top: 50%; /* Positions the top of the element at the middle of its parent */
-    left: 50%; /* Positions the left of the element at the middle of its parent */
-    transform: translate(-50%, -50%); /* Centers the element completely */
-    color: #fff; /* White color for the text for visibility on the image */
-    margin-top: -50px;
-  }
-  
-  .hero-title {
-    font-size: 6rem;
-  }
-  
-  .hero-subtitle {
-    font-size: 3rem;
-  }
-  
-  .hero-content a {
-    display: inline-block; /* Allows margins to be applied */
-    margin: 0.5rem; /* Space between the buttons */
-  }
+    height: 100%;
+    z-index: 1; /* Ensure the slideshow is behind the hero content */
+}
 
-  /* Media queries for mobile device */
+.slide {
+    position: relative;
+}
+
+.slide-image {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+}
+
+.slide-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.4; /* Adjust the opacity as needed */
+    z-index: 2; /* Ensure the overlay is above the image */
+}
+
+.hero-content {
+    position: absolute;
+    z-index: 3; /* Ensure the hero content is on top of the slideshow and overlay */
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    margin-top: -50px;
+}
+
+.hero-title {
+    font-size: 6rem;
+}
+
+.hero-subtitle {
+    font-size: 3rem;
+}
+
+.hero-content a {
+    display: inline-block;
+    margin: 0.5rem;
+}
+
 @media only screen and (max-width: 768px) {
     .hero-title {
-      font-size: 2.8rem; /* Reduce the font size for small screens */
+        font-size: 2.8rem;
     }
-  
-    .hero-subtitle {
-      font-size: 1.8rem; /* Reduce the font size for small screens */
-    }
-  
-    .hero-content a {
-      margin: 0.2rem; /* Reduce the space between the buttons for small screens */
-    }
-  }
-  
-  /* You can adjust the selectors as needed if your buttons have different classes */
 
-  .btn-primary {
+    .hero-subtitle {
+        font-size: 1.8rem;
+    }
+
+    .hero-content a {
+        margin: 0.2rem;
+    }
+
+    .slide-image {
+        height: auto; /* Adjust height for smaller screens */
+    }
+}
+
+.btn-primary {
     background-color: var(--primary-color);
     border-color: var(--primary-color);
-  }
-  
-  .btn-primary:hover,
-  .btn-primary:focus {
-    background-color: darken(var(--primary-color), 10%); /* Darken the color by 10% when hovered or focused */
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: darken(var(--primary-color), 10%);
     border-color: darken(var(--primary-color), 10%);
-  }
-  
-  .btn-primary:active {
-    background-color: darken(var(--primary-color), 20%); /* Darken the color by 20% when active */
+}
+
+.btn-primary:active {
+    background-color: darken(var(--primary-color), 20%);
     border-color: darken(var(--primary-color), 20%);
-  }
-  
-  .btn-secondary {
+}
+
+.btn-secondary {
     background-color: transparent;
     border-color: var(--secondary-color);
-  }
-  
-  .btn-secondary:hover,
-  .btn-secondary:focus {
-    background-color: lighten(var(--secondary-color), 10%); /* Lighten the color by 10% when hovered or focused */
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus {
+    background-color: lighten(var(--secondary-color), 10%);
     border-color: lighten(var(--secondary-color), 10%);
-  }
-  
-  .btn-secondary:active {
-    background-color: lighten(var(--secondary-color), 20%); /* Lighten the color by 20% when active */
+}
+
+.btn-secondary:active {
+    background-color: lighten(var(--secondary-color), 20%);
     border-color: lighten(var(--secondary-color), 20%);
-  }
-  
-  .slogan-container{
+}
+
+.slogan-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -100,4 +123,4 @@
     color: var(--secondary-text-color);
     background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
     min-height: 350px;
-  }
+}
